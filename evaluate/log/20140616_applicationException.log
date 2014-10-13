@@ -1,0 +1,20 @@
+2014-06-16T11:28:02+08:00 DEBUG (7): assign() expects a string or array, got NULL
+#0 C:\AppServ\www\iceworkflow\modules\systemapi\controllers\ErrorController.php(69): Smarty_View->assign('', NULL)
+#1 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(502): Systemapi_ErrorController->noappAction()
+#2 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Dispatcher\Standard.php(293): Zend_Controller_Action->dispatch('noappAction')
+#3 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#4 C:\AppServ\www\iceworkflow\index.php(50): Zend_Controller_Front->dispatch()
+#5 {main}
+2014-06-16T13:37:30+08:00 DEBUG (7): Missing Generic Service class ("Systemapi_Evaluate_Generic")
+#0 C:\AppServ\www\iceworkflow\library\Workflow\Controller\Flow\Action.php(54): System_Controller->getGeneric('evaluate', 'systemapi')
+#1 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(129): Workflow_Controller_Flow_Action->init()
+#2 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Dispatcher\Standard.php(269): Zend_Controller_Action->__construct(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http), Array)
+#3 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#4 C:\AppServ\www\iceworkflow\index.php(50): Zend_Controller_Front->dispatch()
+#5 {main}
+2014-06-16T19:36:41+08:00 DEBUG (7): Action "errorpage" does not exist and was not trapped in __call()
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(504): Zend_Controller_Action->__call('errorpageAction', Array)
+#1 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Dispatcher\Standard.php(293): Zend_Controller_Action->dispatch('errorpageAction')
+#2 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#3 C:\AppServ\www\iceworkflow\index.php(58): Zend_Controller_Front->dispatch()
+#4 {main}

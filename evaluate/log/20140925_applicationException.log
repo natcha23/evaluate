@@ -1,0 +1,64 @@
+2014-09-25T14:44:01+07:00 DEBUG (7): Invalid controller specified (account)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T14:44:47+07:00 DEBUG (7): Invalid controller specified (account)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T15:01:23+07:00 DEBUG (7): Invalid controller specified (authen)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T15:01:55+07:00 DEBUG (7): Invalid controller specified (authen)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T15:02:22+07:00 DEBUG (7): Invalid controller specified (authen)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T15:13:56+07:00 DEBUG (7): Invalid controller specified (authen)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T15:20:33+07:00 DEBUG (7): Invalid controller specified (authen)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T15:20:57+07:00 DEBUG (7): Invalid controller specified (authen)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T15:22:11+07:00 DEBUG (7): Invalid controller specified (authen)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T15:24:24+07:00 DEBUG (7): Invalid controller specified (authen)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T17:36:38+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T17:36:38+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T18:02:32+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T18:02:32+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T18:04:59+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-25T18:06:21+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(201): Zend_Controller_Front->dispatch()
+#2 {main}

@@ -1,0 +1,15 @@
+RewriteEngine on
+RewriteRule (image)\.(php)$ image.php [L]
+RewriteRule (send_sms)\.(php)$ send_sms.php [L]
+
+# Add laster
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1
+# End add
+
+RewriteRule ^.*$ - [NC,L]
+RewriteRule !\.(htm|swf|js|ico|gif|jpg|png|css|xls|xlsx)$ index.php [L]
+
+php_value magic_quotes_gpc off
+

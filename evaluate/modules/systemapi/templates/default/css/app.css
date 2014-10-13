@@ -1,0 +1,308 @@
+body {
+	background-color: #FFFFFF;
+	/*background-image: url(../images/form/bg.gif);*/
+	background-repeat: repeat-x;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+table.tscrolling {
+	font-family:arial;
+	background-color: #EBEBEB;
+	margin:0px 0pt 0px;
+	font-size: 8pt;
+	text-align: left;
+}
+table.tscrolling .tdhead {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+
+}
+table.tscrolling .tddata {
+	background-color: #FFFFFF;
+}
+table.tscrolling .rowodd
+{ background-color:#FFFFFF; }
+
+table.tscrolling .roweven
+{ background-color:#F5F5F5;}
+table.tscrolling thead tr {
+	position: relative;
+	top: expression(offsetParent.scrollTop); /*IE5+ only*/
+	background-color: #EBEBEB;
+}
+table.tscrolling thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tscrolling thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tscrolling tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+/*	background-color: #FFF;*/
+	vertical-align: top;
+}
+table.tscrolling tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+
+table.tscrolling thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+
+
+#txt_link a:link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#txt_link a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#txt_link a:hover {
+    color: #FF6600;
+    text-decoration: underline;
+}
+#txt_link_user a:link {
+    color: #666666;
+    text-decoration: none;
+}
+
+#txt_link_user a:visited {
+    color: #666666;
+    text-decoration: none;
+}
+
+#txt_link_user a:hover {
+    color: #FF6600;
+    text-decoration: underline;
+}
+.color_head{ background-color:#EEEEEE;}
+.color_line{ background-color:#F2F2F2;}
+.button {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana; HEIGHT: 19px; background-image: url(../images/buttons/bgbutton.gif); border: 1px solid #9399AC;
+}
+.font10 {
+	font-size: 10px;
+	color: #666666;
+}
+.font10b {
+	font-size: 10px;
+	font-weight: bold;
+	color: #666666;
+}
+.font11 {
+	font-family: verdana;
+	font-size: 11px;
+	color: #666666;
+}
+.font11w {
+	font-family: verdana;
+	font-size: 11px;
+	color: #ffffff;
+}
+.font11bor {
+	font-family: verdana;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FF8400;
+}
+.font11b {
+	font-family: verdana;
+	font-size: 11px;
+	font-weight: bold;
+	color: #666666;
+}
+.font12 {
+	font-family: verdana;
+	font-size: 12px;
+	color: #666666;
+}
+.font11R {
+	font-family: verdana;
+	font-size: 11px;
+	color: #FF0000;
+}
+.font12R {
+	font-family: verdana;
+	font-size: 12px;
+	color: #FF0000;
+}
+.font11BL {
+	font-family: verdana;
+	font-size: 11px;
+	color: #0000FF;
+}
+.font12BL {
+	font-family: verdana;
+	font-size: 12px;
+	color: #0000FF;
+}
+.font12b {
+	font-family: verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666666;
+}
+.font13b {
+	font-family: verdana;
+	font-size: 13px;
+	font-weight: bold;
+	color: #666666;
+}
+.font14b {
+	font-family: verdana;
+	font-size: 12px;
+	color: #ffffff;
+	font-weight: bold;
+}
+.textfield_15c{
+	font-family: verdana;font-size: 11px;width:15cm;
+}
+.textfield_10c{
+	font-family: verdana;font-size: 11px;width:10cm;
+}
+.textfield_8c{
+	font-family: verdana;font-size: 11px;width: 8cm;
+}
+.textfield_7c{
+	font-family: verdana;font-size: 11px;width: 7cm;
+}
+.textfield_6_5c{
+	font-family: verdana;font-size: 11px;width: 6.5cm;
+}
+.textfield_6c{
+	font-family: verdana;font-size: 11px;width: 6cm;
+}
+.textfield_5_6c{
+	font-family: verdana;font-size: 11px;width: 5.6cm;
+}
+.textfield_5_5c{
+	font-family: verdana;font-size: 11px;width: 5.5cm;
+}
+.textfield_5c{
+	font-family: verdana;font-size: 11px;width: 5cm;
+}
+.textfield_4c{
+	font-family: verdana;font-size: 11px;width: 4cm;
+}
+.textfield_3c{
+	font-family: verdana;font-size: 11px;width: 3cm;
+}
+.textfield_2_5c{
+	font-family: verdana;font-size: 11px;width: 2.5cm;
+}
+.textfield_2c{
+	font-family: verdana;font-size: 11px;width: 2cm;
+}
+.textfield_1_5c{
+	font-family: verdana;font-size: 11px;width: 1.5cm;
+}
+.textfield_1c{
+	font-family: verdana;font-size: 11px;width: 1cm;
+}
+.selectBox5 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 50PX;
+}
+.selectBox3cm {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 3cm;
+}
+.selectBox5cm {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 5cm;
+}
+.selectBox7 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 70PX;
+}
+.selectBox10 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 100PX;
+}
+.selectBox13 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 130PX;
+}
+.selectBox15 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 150PX;
+}
+.selectBox18 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 180PX;
+}
+.selectBox20 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 200PX;
+}
+.style1 {
+	font-family: Tahoma;
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.style2 {
+	font-family: Tahoma;
+	font-size: 13px;
+	color: #FFFFFF;
+}
+.style4 {font-family: Tahoma; font-size: 13px; color: #666666; }
+.style6 {
+	font-size: 12px;
+	color: #FFFFFF;
+	font-family: Arial;
+	font-weight: bold;
+}
+.style7 {
+	font-family: Arial;
+	font-size: 13px;
+	color: #009933;
+}
+.style8 {
+	font-family: Arial;
+	font-size: 13px;
+	color: #336699;
+}
+.style9 {
+	font-size: 13px;
+	font-family: Arial;
+	color: #FFFFFF;
+}
+.style15 {
+	font-size: 15px;
+	font-family: Arial;
+	color: #070e69;
+	font-weight: bold;
+}
+.style18 {font-size: 11px; font-family: Arial; color: #FFFFFF; }
+.style19 {color: #FFFFFF}
+.style20 {color: #FFFFFF; font-size: 11px; }
+.style21 {font-family: Arial}
+.style22 {font-size: 11px}
+.style23 {
+	font-size: 11px;
+	font-family: Arial;
+	color: #666666;
+}
+.style24 {
+	font-size: 11px;
+	font-family: Tahoma;
+	color: #666666;
+}
+.style24b {
+	font-size: 11px;
+	font-family: Tahoma;
+	color: #666666;
+	font-weight: bold;
+}
+.style25 {color: #666666}
+.style26 {font-family: Tahoma}
+.style32 {font-size: 11px; font-family: Tahoma; color: #333333; }
+.style33 {color: #333333}
+body,td,th {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #666666;
+}

@@ -1,0 +1,7 @@
+; English language site configuration data
+[lang]
+en.test     = Test
+en.host     = Host Name
+en.username = User Name
+en.password = Password
+en.name     = Name

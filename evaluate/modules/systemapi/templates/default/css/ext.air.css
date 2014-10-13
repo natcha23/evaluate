@@ -1,0 +1,83 @@
+/****
+ * $Id$ Modified $
+ *
+ * Original from :
+ *
+ * Ext JS Library 0.20
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ *
+ * http://extjs.com/license
+ */
+
+div.x-air-window {
+    /*position: relative;*/
+    background: transparent !important;
+    border: none;
+    /*margin-top: -300px;*/
+    /*opacity: 0.1;*/
+	/*height:100%;*/
+}
+
+.x-air.x-window-tc {
+	background: transparent url(../images/shared/air/top-bottom.png) repeat-x 0 0;
+	padding-top:11px;
+}
+.x-air.x-window-bc .x-air.x-window-footer {
+    background: transparent url(../images/shared/air/top-bottom.png) repeat-x 0 bottom;
+    padding-bottom:11px;
+}
+.x-panel-nofooter .x-air.x-window-bc {
+	background: transparent url(../images/shared/air/top-bottom.png) repeat-x 0 bottom;
+    height:15px;
+}
+.x-air.x-window-tr {
+	background: transparent url(../images/shared/air/right-corners.png) no-repeat right 0;
+	padding-right:15px;
+}
+.x-air.x-window-br {
+	background: transparent url(../images/shared/air/right-corners.png) no-repeat right bottom;
+	padding-right:15px;
+}
+
+.x-air.x-window-tl {
+	background: transparent url(../images/shared/air/left-corners.png) no-repeat 0 0;
+	padding-left:15px;
+}
+.x-air.x-window-bl {
+	background: transparent url(../images/shared/air/left-corners.png) no-repeat 0 bottom;
+	padding-left:15px;
+}
+
+.x-air.x-window-mr {
+	background: transparent url(../images/shared/air/left-right.png) repeat-y right 0;
+	padding-right:15px;
+}
+
+.x-air.x-window-ml {
+	background: transparent url(../images/shared/air/left-right.png) repeat-y 0 0;
+	padding-left:15px;
+}
+.x-air.x-resizable-handle{
+	margin:7px;
+}
+
+.x-air.x-window-mc {
+    background: transparent url(../images/shared/air/top-bottom.png) repeat-x 0 center;
+}
+
+.x-air.x-window-body {
+    clear: both;
+    background:transparent !important;
+}
+
+.x-air.x-window-body-text {
+    float: left;
+    margin-top: 5px;
+    font:normal 11px arial, tahoma, helvetica, sans-serif;
+}
+
+.x-air.x-window-body .x-air.x-window-wait {
+    float: left;
+    padding: 1px;
+}

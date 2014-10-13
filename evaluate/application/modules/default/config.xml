@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configdata>
+  <routing>
+   <routes>
+        <default>
+            <type>Zend_Controller_Router_Route</type>
+			<route>:module/:controller/:action/*</route>
+            <defaults>
+              <module>default</module>
+              <controller>index</controller>
+              <action>index</action>
+            </defaults>
+        </default>
+    </routes>
+  </routing>
+</configdata>

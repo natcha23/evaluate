@@ -1,0 +1,25 @@
+/*
+@media screen{
+    div#footer{ position: absolute; }
+}
+*/
+html, body { height: 100%; overflow: auto; }
+div#footer{ bottom:0px; right: 0px; position: absolute; }
+
+.btn_tools { text-indent: 0px; border: 1px solid #dddddd; }
+.btn_tools_focus {
+    text-indent: 0px;
+    border: 1px solid #ef6f6f;
+    background-color: #ffe7e7;
+}
+
+* html div.jqmConfirm , * html div.jqmAlert {
+     position: absolute;
+     width: 40%;
+     left: expression((document.documentElement.scrollLeft || document.body.scrollLeft) + Math.round(30 * (document.documentElement.offsetWidth || document.body.clientWidth) / 100) + 'px');
+}
+
+button {
+  width: auto;
+  overflow: visible;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<configdata>
+    <routing>
+        <routes>
+            <authen>
+                <type>Zend_Controller_Router_Route</type>
+                <route>:module/:controller/:action/*</route>
+                <defaults>
+                    <module>authen</module>
+                    <controller>index</controller>
+                    <action>index</action>
+                </defaults>
+            </authen>
+        </routes>
+    </routing>
+</configdata>

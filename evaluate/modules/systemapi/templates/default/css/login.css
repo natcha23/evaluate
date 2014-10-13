@@ -1,0 +1,131 @@
+body {
+	/*background-image:url(../images/menu/bg.jpg);*/
+	background-image:url(../images/login/bg_01.jpg);
+	background-repeat:repeat-x;
+	background-color:#80b2c9;
+	width:100%;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+.style5 {font-size: 12px; font-family: Tahoma; }
+body1 {
+	background-color: #32424b;
+	background-image: url(../images/form/bg.jpg);
+	background-repeat: repeat-x;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+.style8 {
+	font-size: 11px;
+	font-family: Tahoma;
+	color: #FFFFFF;
+}
+table,input {
+    font-family: Tahoma, sans-serif;
+    font-size: 11px;
+    color: #333333;
+}
+.font11 {
+	font-family: verdana;
+	font-size: 11px;
+}
+.font11bor {
+	font-family: verdana;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FF8400;
+}
+.font11b {
+	font-family: verdana;
+	font-size: 11px;
+	font-weight: bold;
+}
+.font12 {
+	font-family: verdana;
+	font-size: 12px;
+}
+.font12b {
+	font-family: verdana;
+	font-size: 12px;
+	font-weight: bold;
+}
+.font13b {
+	font-family: verdana;
+	font-size: 13px;
+	font-weight: bold;
+}
+.font14b {
+	font-family: verdana;
+	font-size: 12px;
+	color: #ffffff;
+	font-weight: bold;
+}
+.textfield_15c{
+	font-family: verdana;font-size: 11px;width:15cm;
+}
+.textfield_10c{
+	font-family: verdana;font-size: 11px;width:10cm;
+}
+.textfield_8c{
+	font-family: verdana;font-size: 11px;width: 8cm;
+}
+.textfield_7c{
+	font-family: verdana;font-size: 11px;width: 7cm;
+}
+.textfield_6_5c{
+	font-family: verdana;font-size: 11px;width: 6.5cm;
+}
+.textfield_6c{
+	font-family: verdana;font-size: 11px;width: 6cm;
+}
+.textfield_5_6c{
+	font-family: verdana;font-size: 11px;width: 5.6cm;
+}
+.textfield_5_5c{
+	font-family: verdana;font-size: 11px;width: 5.5cm;
+}
+.textfield_5c{
+	font-family: verdana;font-size: 11px;width: 5cm;
+}
+.textfield_4c{
+	font-family: verdana;font-size: 11px;width: 4cm;
+}
+.textfield_3c{
+	font-family: verdana;font-size: 11px;width: 3cm;
+}
+.textfield_2_5c{
+	font-family: verdana;font-size: 11px;width: 2.5cm;
+}
+.textfield_2c{
+	font-family: verdana;font-size: 11px;width: 2cm;
+}
+.textfield_1_5c{
+	font-family: verdana;font-size: 11px;width: 1.5cm;
+}
+.textfield_1c{
+	font-family: verdana;font-size: 11px;width: 1cm;
+}
+.selectBox5 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 50PX;
+}
+.selectBox7 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 70PX;
+}
+.selectBox10 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 100PX;
+}
+.selectBox13 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 130PX;
+}
+.selectBox15 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 150PX;
+}
+.selectBox18 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 180PX;
+}
+.selectBox20 {
+	FONT-SIZE: 11px; FONT-FAMILY: Tahoma; HEIGHT: 20px; width: 200PX;
+}
+.button {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana; HEIGHT: 19px; background-image: url(../images/buttons/bgbutton.gif); border: 1px solid #9399AC;
+}

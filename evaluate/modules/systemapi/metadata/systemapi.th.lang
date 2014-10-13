@@ -1,0 +1,7 @@
+; Thai language site configuration data
+[lang]
+th.test     = ทดสอบ
+th.host     = โฮสท์เนม
+th.username = ชื่อผู้ใช้
+th.password = รหัสผ่าน
+th.name     = ชื่อ

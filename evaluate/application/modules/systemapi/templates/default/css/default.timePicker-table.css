@@ -1,0 +1,30 @@
+div.time-holder {
+    position: absolute;
+    display: none;
+    width: 1px;
+    z-index: 99;
+}
+div.time-holder table.times {
+    position: relative;
+    background: #fff;
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+div.time-holder table.times td.time {
+    padding: 2px;
+    width: 45px;
+    cursor: pointer;
+    border: 1px solid #000;
+    background: #fff;
+    /*font-size: 0.7em;*/
+}
+div.time-holder table.times td.empty {
+    padding: 2px;
+    width: 45px;
+    border: 1px solid #000;
+    }
+div.time-holder table.times td.selected {
+    /*background: #ff0;*/
+    background: #FFDADA;
+    color: #000;
+}

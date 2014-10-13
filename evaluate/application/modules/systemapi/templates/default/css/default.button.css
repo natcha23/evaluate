@@ -1,0 +1,167 @@
+/*
+  Button Style
+*/
+.btn_tools, .button, .btn_special {
+    border: 1px solid;
+    border-color: transparent;
+    padding: 3px;
+    cursor: pointer;
+    background-attachment: inherit;
+    background-position: 3px;
+    background-repeat: no-repeat;
+    text-indent: 15px;
+    background-color: transparent;
+    font-weight: bold;
+    /*
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    */
+}
+
+#btn_search {
+    background-image: url("../images/shared/toolsbar/search.gif");
+}
+#btn_submit, #btn_setup {
+    background-image: url("../images/shared/icons/select.gif");
+}
+
+#btn_new {
+    background-image: url("../images/shared/toolsbar/new.gif");
+}
+
+#btn_edit {
+    background-image: url("../images/shared/toolsbar/edit.gif");
+}
+
+#btn_delete {
+    background-image: url("../images/shared/toolsbar/delete.gif");
+}
+#btn_del_line {
+    background-image: url("../images/deletep.gif");
+}
+#btn_reload {
+    text-indent: 18px;
+    background-image: url("../images/shared/toolsbar/reload.gif");
+}
+
+#btn_save {
+    background-image: url("i/icons/action_save.gif");
+}
+#btn_disabled_new {
+    background-image: url("i/icons/delete_disabled.png");
+}
+#btn_copy {
+    background-image: url("../images/shared/icons/copy.gif");
+}
+
+#btn_apply {
+    text-indent: 18px;
+    background-image: url("../images/shared/toolsbar/reload.gif");
+}
+
+#btn_cancel {
+    background-image: url("../images/shared/toolsbar/cancel.gif");
+}
+#btn_refresh {
+    background-image: url("i/icons/action_refresh_blue.gif");
+}
+#btn_close {
+	background-image: url("../images/shared/toolsbar/close.gif");
+}
+
+#btn_view {
+    background-image: url("../images/shared/toolsbar/new/b_view.png");
+}
+
+#btn_home {
+    background-image: url("../images/shared/toolsbar/new/b_home.png");
+}
+
+#btn_list {
+    background-image: url("../images/shared/toolsbar/new/s_tbl.png");
+}
+
+#btn_move {
+    background-image: url("../images/shared/toolsbar/uparrows_white.gif");
+}
+
+#btn_prev {
+    background-image: url("i/icons/page_left.gif");
+}
+
+#btn_next {
+    background-image: url("i/icons/page_right.gif");
+}
+#btn_accept {
+    background-image: url("i/icons/icon_accept.gif");
+}
+#btn_back {
+    background-image: url("../images/shared/toolsbar/new/b_back.png");
+}
+
+#btn_import {
+    background-image: url("../images/shared/toolsbar/new/b_import2.png");
+}
+
+#btn_export {
+    background-image: url("../images/shared/toolsbar/new/b_export.png");
+}
+
+#btn_opt {
+    background-image: url("../images/shared/toolsbar/new/b_opt.png");
+}
+
+#btn_upload {
+    background-image: url("i/icons/page_up.gif");
+}
+#btn_download {
+    background-image: url("i/icons/page_down.gif");
+}
+#btn_transfer {
+    background-image: url("i/icons/icon_accept.gif");
+}
+
+#btn_map {
+    background-image: url("i/icons/icon_extension.gif");
+}
+
+#btn_sync {
+    background-image: url("i/icons/synchronize.gif");
+}
+
+#btn_select {
+    background-image: url("../images/shared/icons/select.gif");
+}
+
+#btn_unselect {
+    background-image: url("../images/shared/icons/unselect.gif");
+}
+
+#btn_select_option {
+    padding: 0px;
+    background-image: url("../images/shared/icons/search.gif");
+}
+
+#btn_sent {
+    background-image: url("i/icons/icon_assignment_sent.gif");
+}
+
+#btn_date {
+	background-image: url("../images/shared/icons/month.gif");
+}
+
+#btn_print {
+	background-image: url("../images/shared/icons/print.gif");
+}
+#btn_analysis {
+	background-image: url("../images/shared/icons/month.gif");
+}
+
+.btn_tools_focus {
+    /*
+    border: 1px solid #ef6f6f;
+    background-color: #F7F1F2;
+    */
+    border: 1px solid #ef6f6f;
+    background-color: #ffe7e7;
+}

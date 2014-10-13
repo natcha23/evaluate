@@ -1,0 +1,8 @@
+* { font-family: Verdana, sans; }
+pre.programlisting { background-color: #EDF7FF; border: 1px solid #D3E0EB; direction: ltr; font-size: 12px; font-weight: bold; margin: 5px; padding: 5px; }
+p { margin: 0pt 0pt 1em; padding: 0pt; text-indent: 25px; }
+p.important,div.important,div.warning  , div.tip { border: 1px solid #ee6666; margin: 5px; padding: 5px; background-color: #ffeeee; text-indent: 0px; }
+span.example,div.example { font-weight: bold; border: 1px solid #aaaaaa; background-color: #efefef; margin: 5px; padding: 5px; }
+div.code,span.code { font-weight: bold; color: #7F0055; }
+span p,div p { margin-top: 10px;}
+/*a>span { font-size: 10px;}*/

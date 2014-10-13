@@ -1,0 +1,34 @@
+2014-06-19T11:09:34+08:00 DEBUG (7): Invalid controller specified (account)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\iceworkflow\index.php(58): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-06-19T11:09:44+08:00 DEBUG (7): Invalid controller specified (account)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\iceworkflow\index.php(58): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-06-19T16:37:23+08:00 DEBUG (7): Mysqli prepare error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ORDER BY `m`.`mpl_id` ASC' at line 1
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Statement.php(109): Zend_Db_Statement_Mysqli->_prepare('SELECT `m`.* FR...')
+#1 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Adapter\Mysqli.php(330): Zend_Db_Statement->__construct(Object(Zend_Db_Adapter_Mysqli), 'SELECT `m`.* FR...')
+#2 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Adapter\Abstract.php(405): Zend_Db_Adapter_Mysqli->prepare('SELECT `m`.* FR...')
+#3 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Select.php(580): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select))
+#4 C:\AppServ\www\iceworkflow\modules\systemapi\models\datasource\evaluate.php(358): Zend_Db_Select->query()
+#5 C:\AppServ\www\iceworkflow\modules\workflow\models\EvaluateGeneric.php(1797): Systemapi_evaluate_Table->getEvaluateSubLineLastApprove('mph_id = 134 AN...', NULL)
+#6 C:\AppServ\www\iceworkflow\modules\workflow\controllers\EvaluateController.php(1741): Workflow_Evaluate_Generic->getLastSubLinePI('134')
+#7 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(502): Workflow_EvaluateController->backwardAction()
+#8 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Dispatcher\Standard.php(293): Zend_Controller_Action->dispatch('backwardAction')
+#9 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\AppServ\www\iceworkflow\index.php(58): Zend_Controller_Front->dispatch()
+#11 {main}
+2014-06-19T18:29:53+08:00 DEBUG (7): Mysqli prepare error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''400) GROUP BY `mph_grade` ORDER BY `mph_grade` ASC' at line 2
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Statement.php(109): Zend_Db_Statement_Mysqli->_prepare('SELECT COUNT(mp...')
+#1 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Adapter\Mysqli.php(330): Zend_Db_Statement->__construct(Object(Zend_Db_Adapter_Mysqli), 'SELECT COUNT(mp...')
+#2 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Adapter\Abstract.php(405): Zend_Db_Adapter_Mysqli->prepare('SELECT COUNT(mp...')
+#3 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Select.php(580): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select))
+#4 C:\AppServ\www\iceworkflow\modules\systemapi\models\datasource\evaluate.php(263): Zend_Db_Select->query()
+#5 C:\AppServ\www\iceworkflow\modules\workflow\models\ReportGeneric.php(266): Systemapi_evaluate_Table->GetSummaryGrade('mph_status = 'F...')
+#6 C:\AppServ\www\iceworkflow\modules\workflow\controllers\ReportController.php(99): Workflow_Report_Generic->GetSummaryGrade2014('052014', NULL, Array)
+#7 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(502): Workflow_ReportController->displayAction()
+#8 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Dispatcher\Standard.php(293): Zend_Controller_Action->dispatch('displayAction')
+#9 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\AppServ\www\iceworkflow\index.php(58): Zend_Controller_Front->dispatch()
+#11 {main}

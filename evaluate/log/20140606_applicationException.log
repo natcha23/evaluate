@@ -1,0 +1,40 @@
+2014-06-06T13:01:41+08:00 DEBUG (7): Invalid controller specified (account)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\iceworkflow\index.php(28): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-06-06T17:52:23+08:00 DEBUG (7): Cannot send headers; headers already sent in C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Debug.php, line 98
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Response\Abstract.php(147): Zend_Controller_Response_Abstract->canSendHeaders(true)
+#1 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action\Helper\Redirector.php(193): Zend_Controller_Response_Abstract->setRedirect('/iceworkflow/ma...', 302)
+#2 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action\Helper\Redirector.php(364): Zend_Controller_Action_Helper_Redirector->_redirect('/iceworkflow/ma...')
+#3 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action\Helper\Redirector.php(446): Zend_Controller_Action_Helper_Redirector->setGotoUrl('master/menu/lis...', Array)
+#4 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(675): Zend_Controller_Action_Helper_Redirector->gotoUrl('master/menu/lis...', Array)
+#5 C:\AppServ\www\iceworkflow\modules\master\controllers\MenuController.php(129): Zend_Controller_Action->_redirect('master/menu/lis...')
+#6 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(502): Master_MenuController->addAction()
+#7 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Dispatcher\Standard.php(293): Zend_Controller_Action->dispatch('addAction')
+#8 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 C:\AppServ\www\iceworkflow\index.php(28): Zend_Controller_Front->dispatch()
+#10 {main}
+2014-06-06T17:52:49+08:00 DEBUG (7): Cannot send headers; headers already sent in C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Debug.php, line 98
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Response\Abstract.php(147): Zend_Controller_Response_Abstract->canSendHeaders(true)
+#1 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action\Helper\Redirector.php(193): Zend_Controller_Response_Abstract->setRedirect('/iceworkflow/ma...', 302)
+#2 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action\Helper\Redirector.php(364): Zend_Controller_Action_Helper_Redirector->_redirect('/iceworkflow/ma...')
+#3 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action\Helper\Redirector.php(446): Zend_Controller_Action_Helper_Redirector->setGotoUrl('/master/mtmenu/...', Array)
+#4 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(675): Zend_Controller_Action_Helper_Redirector->gotoUrl('/master/mtmenu/...', Array)
+#5 C:\AppServ\www\iceworkflow\modules\master\controllers\MtmenuController.php(59): Zend_Controller_Action->_redirect('/master/mtmenu/...')
+#6 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(502): Master_MTmenuController->saveAction()
+#7 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Dispatcher\Standard.php(293): Zend_Controller_Action->dispatch('saveAction')
+#8 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 C:\AppServ\www\iceworkflow\index.php(28): Zend_Controller_Front->dispatch()
+#10 {main}
+2014-06-06T17:52:54+08:00 DEBUG (7): Cannot send headers; headers already sent in C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Debug.php, line 98
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Response\Abstract.php(147): Zend_Controller_Response_Abstract->canSendHeaders(true)
+#1 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action\Helper\Redirector.php(193): Zend_Controller_Response_Abstract->setRedirect('/iceworkflow/ma...', 302)
+#2 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action\Helper\Redirector.php(364): Zend_Controller_Action_Helper_Redirector->_redirect('/iceworkflow/ma...')
+#3 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action\Helper\Redirector.php(446): Zend_Controller_Action_Helper_Redirector->setGotoUrl('/master/mtmenu/...', Array)
+#4 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(675): Zend_Controller_Action_Helper_Redirector->gotoUrl('/master/mtmenu/...', Array)
+#5 C:\AppServ\www\iceworkflow\modules\master\controllers\MtmenuController.php(59): Zend_Controller_Action->_redirect('/master/mtmenu/...')
+#6 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(502): Master_MTmenuController->saveAction()
+#7 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Dispatcher\Standard.php(293): Zend_Controller_Action->dispatch('saveAction')
+#8 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 C:\AppServ\www\iceworkflow\index.php(28): Zend_Controller_Front->dispatch()
+#10 {main}

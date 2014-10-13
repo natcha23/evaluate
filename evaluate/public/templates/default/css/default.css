@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+.login-body.has-message .form-signin {
+	margin: 30px auto 0;
+}
+
+.login-body {
+	background-image: url(../img/signin/background.png);
+	background-position:0 -200px;
+}
+
+.login-wrap,
+.form-signin h2.form-signin-heading,
+.user-login-info {
+	background: #B62124 !important;
+	border-bottom-color:#B62124 !important;
+}
+.form-signin .checkbox {
+	color:#fff;
+}
+
+.login-body .alert-success, 
+.login-body .alert-danger, 
+.login-body .alert-info, 
+.login-body .alert-warning {
+	margin: 100px auto 0;
+}

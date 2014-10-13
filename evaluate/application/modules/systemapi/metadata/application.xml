@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+    <name>rsEvaluation</name>
+    <title>Evaluation System</title>
+    <auth>Y</auth>
+    <email>
+        <server>10.2.1.200</server>
+    </email>
+    <defaults>
+        <dateformat>%d/%m/%Y</dateformat>
+        <timeformat>%H:%M:%S</timeformat>
+        <datetimeformat>%d/%m/%Y %H:%M:%S</datetimeformat>
+        <template>default</template>
+        <theme>default</theme>
+        <language>th</language>
+    </defaults>
+</application>

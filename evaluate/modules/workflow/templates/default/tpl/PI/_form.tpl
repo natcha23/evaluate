@@ -1,0 +1,870 @@
+{include file="$g_template/_header.tpl"}
+<script>
+	var IMG_URL = '{$IMG_URL}';
+	var user_code = '{$_profile->user_code}';
+	var stpage = '{$status}';
+
+{literal}
+function ChkInt(obj) {
+	if (ckvNumeric(obj.value) == false){
+ 			alert('pleases input number only.');
+ 			obj.value = '';
+ 			obj.focus();
+ 			return false;
+ 	}
+}
+function ChkIntNoDot(obj) {
+	if (ckvNumericNoDot(obj.value) == false){
+ 			alert('pleases input number only.');
+ 			obj.value = '';
+ 			obj.focus();
+ 			return false;
+ 	}
+}
+
+
+// natcharee
+function CheckRangeScore(obj) {
+	if(chkRangeNum(obj.value) == false) {
+ 		_alert('Please input number 1-5 only.');
+		obj.value = '';
+		obj.focus();
+		return false;
+ 	}
+}
+function chkRangeNum(value) {
+	if(value < 0 || value > 5) {
+		return false;
+	}
+	
+	return true;
+}
+function chkRangeWeight(obj,i) {
+	var no = i.split('_')[0];
+	var weight = $('#mwscoll_'+no).val();
+	if(_SumsubW(no) > weight) {
+		_alert('You input weight over '+weight+ '!!');
+		obj.value = '';
+		obj.focus();
+		return false;
+	}
+
+	return true;
+}
+function _SumsubW(no){
+	var sum = 0;
+	$('input[@id^=wscoll\_'+no+'_]').each(function(){
+		sum += $(this).val().replace(/[\,]/g,'')*1;
+	});
+	
+	return sum;
+	
+}
+function checkTotalBeforeSave() {
+	var sum_score = $('#sum_weight').val();
+
+	if(sum_score != 100) {
+		_alert('Point weight more than 100 or less than 100,Please check again.'); 
+		return false;
+	}
+	return true;
+}
+function ckvNumericNoDot(sText) {
+	   var ValidChars = '0123456789';
+	   var IsNumber=true;
+	   var Char;
+	   var Dot=0;
+	   for (i = 0; i < sText.length && IsNumber == true; i++){
+		      Char = sText.charAt(i);
+
+		      if (ValidChars.indexOf(Char) == -1){
+		         	IsNumber = false;
+		      }
+	   }
+	   return IsNumber;
+}
+function ckvNumeric(sText) {
+	   var ValidChars = '0123456789.';
+	   var IsNumber=true;
+	   var Char;
+	   var Dot=0;
+	   for (i = 0; i < sText.length && IsNumber == true; i++){
+		      Char = sText.charAt(i);
+
+		      if (ValidChars.indexOf(Char) == -1){
+		         	IsNumber = false;
+		      }
+	   }
+	   return IsNumber;
+}
+function ChkVal(elm){
+	if(elm.value > 10){
+		alert('You input point more than 10,Please check again.');
+		$('#'+elm.id).val('');
+		return false;
+	}
+}
+function _SumTAdd(m,i){
+	if(m) var no = m+'_'+i;
+	else var no = '0_'+i;
+	_SumT(no);
+}
+//edited
+function _SumT(i){
+	var sum_tscoll = 0;	
+	var wscoll = $('#wscoll_'+i).val().replace(/[\,]/g,'')*1;
+	var rscoll = $('#rscoll_'+i).val().replace(/[\,]/g,'')*1;
+
+	if(rscoll > 10){
+		alert('You input point more than 10,Please check again.');
+		$('#rscoll_'+i).val('');
+		return false;
+	}else{	
+		var tscoll = wscoll * rscoll;
+		$('#tscoll_'+i).val(tscoll)		
+		var sum_wscoll = 0;
+		$('input[@id^=tscoll\_]').each(function(){
+			sum_tscoll += $(this).val().replace(/[\,]/g,'')*1;
+		});
+		$('#point_total').html(sum_tscoll);	
+	
+		var params = '_output=json&total='+sum_tscoll;
+		var baseUrl = '/'+projectName+'/workflow/evaluate/calgrade/';
+		AjaxContent.init({
+			proxy : baseUrl,
+		    container : 'content-container',
+		    overlay : true,
+		    showLoadding: false,
+		    htmlTemplate: null
+		});
+		AjaxContent.send(params,function(returnText){
+		  	 if(returnText){
+	    		eval(returnText);
+	      		var sum_total ;
+	       	 }
+	   	});		
+	}
+}
+function _SumW(){
+	var sum_wscoll = 0;
+	$('input[@id^=wscoll\_]').each(function(){
+		sum_wscoll += $(this).val().replace(/[\,]/g,'')*1;
+	});
+	$('#weight').html(sum_wscoll);
+	$('#sum_weight').val(sum_wscoll);
+}
+function AddRows(main){
+	var subname = $('#subject').val();
+	var wscoll = $('#wscoll').val();
+
+	var len = $('tr[@id^=main_]').length;
+	var no = (len*1)+1;
+	$('<tr id="main_'+no+'" bgcolor="#DAECF4" height="20">'+
+			'<td colspan="6" ><table bgcolor="#DAECF4" cellpadding="0" cellspacing="1" width="100%" border="0" >'+
+				'<tr>'+
+					'<td align="center" width="3%">'+no+'</td>'+
+					'<td align="left">'+
+						'<input type="hidden" name="detail['+no+'][mpl_id]" value="" >'+
+						'<input type="hidden" name="detail['+no+'][mpl_type]" value="D" >'+
+						'<input type="hidden" name="detail['+no+'][mpl_status]" value="N" >'+
+						'<input type="text" name="detail['+no+'][mpl_subject]" value="'+subname+'" size="70" >'+
+					'</td>'+
+					'<td width="7%" align="center"><input type="text" name="detail['+no+'][mpl_weight]" id="mwscoll_'+no+'" onKeyup="ChkIntNoDot(this);" value="'+wscoll+'" size="5"></td>'+
+					'<td width="7%"></td>'+
+					'<td width="7%" ></td>'+
+					'<td width="5%" align="center" nowrap><a href="javascript:void(0)" onclick="AddRowsParent('+no+');"><img src="'+IMG_URL+'/add.gif" border="0" ></a><a href="javascript:void(0)" onclick="DelRow('+no+');"><img src="'+IMG_URL+'/deletep.gif" border="0" ></a></td>'+
+				'</tr>'+
+				'<tbody id="show_parant'+no+'"></tbody>'+
+			'</table></td>'+
+	  '</tr>').appendTo($('#show_main'));
+
+	$('#subject').val('');
+	$('#wscoll').val('');
+}
+function AddRowsParent(main){
+	var len = $('tr[@id^=sub_'+main+'_]').length;
+	var no = (len*1)+1;
+	var line_id = main+'_'+no;
+	
+	var childrow = $('tr[@id^=sub_'+main+'_'+no+']').length;
+	while (childrow > 0) {
+		no++;
+		childrow = $('tr[@id^=sub_'+main+'_'+no+']').length;
+	}
+	
+	$('<tr id="sub_'+main+'_'+no+'" height="20" bgcolor="#ffffff" >'+
+			'<td >&nbsp;</td>'+
+			'<td align="left">'+
+				'<input type="hidden" name="detail['+main+'][line]['+no+'][mpl_id]" value="" >'+
+				'<input type="hidden" name="detail['+main+'][line]['+no+'][mpl_type]" value="D" >'+
+				'<input type="hidden" name="detail['+main+'][line]['+no+'][mpl_status]" value="N" >'+
+				'<input type="text" name="detail['+main+'][line]['+no+'][mpl_subject]" value="" size="70"  >'+
+			'</td>'+
+			'<td align="center"><input type="text" name="detail['+main+'][line]['+no+'][mpl_weight]" id="wscoll_'+main+'_'+no+'" value="" onKeyup="ChkIntNoDot(this);_SumW();chkRangeWeight(this,\''+line_id+'\');_SumTAdd('+main+','+no+');" size="5"></td>'+
+			'<td align="center"><input type="text" name="detail['+main+'][line]['+no+'][mpl_point]" id="rscoll_'+main+'_'+no+'" value="" onKeyup="ChkIntNoDot(this);CheckRangeScore(this);_SumTAdd('+main+','+no+');" size="5"></td>'+
+			'<td align="center"><input type="text" id="tscoll_'+main+'_'+no+'" value="" readonly size="5"></td>'+
+			'<td align="center" nowrap><a href="javascript:void(0)" onclick="DelRowParent('+main+','+no+');"><img src="'+IMG_URL+'/deletep.gif" border="0" ></a></td>'+
+	  '</tr>').appendTo($('#show_parant'+main));
+}
+function DelRowParent(r1,r2){
+	var id = r1+'_'+r2;
+    //$('tr[@id^=sub_'+id+']').remove();
+    $('#sub_'+id).remove();
+    _SumW();
+}
+function DelRow(id){
+	//$('tr[@id^=main_'+id+']').remove();
+	$('#main_'+id).remove();
+    $('tr[@id^=sub_'+id+'_]').remove();
+    _SumW();
+}
+
+{/literal}
+</script>
+<div id="content-container">
+<!--
+onload="MM_preloadImages('{$g_image}/form/month-over_04.gif','{$g_image}/form/month-over_05.gif',
+'{$g_image}/form/month-over_06.gif','{$g_image}/form/month-over_07.gif','{$g_image}/form/month-over_08.gif',
+'{$g_image}/form/month-over_11.gif','{$g_image}/form/month-over_12.gif','{$g_image}/form/month-over_13.gif','{$g_image}/form/month-over_14.gif',
+'{$g_image}/form/month-over_15.gif','{$g_image}/form/month-over_16.gif','{$g_image}/form/month-over_17.gif')"
+-->
+<form method="post" action="" id="_pifrm" enctype="multipart/form-data">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	      <tr>
+	        {*include file="$g_template/_menuleft.tpl"*}
+	        <td width="3" background="{$g_image}/form/line.jpg"><img src="{$g_image}/form/line.jpg" width="3" height="6" /></td>
+			<!--detail-->
+				<td valign="top" bgcolor="#FFFFFF">
+					<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+					  <tr><td height="3"></td></tr>
+			          <tr>
+			            <td>
+			            	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					            <tr>
+					                <td width="68%">&nbsp;</td>
+					                <td width="10%">&nbsp;</td>
+					                <td width="10%" rowspan="5">
+					                	<table width="303" border="0" cellspacing="0" cellpadding="0">
+						                    <tr>
+						                      <td><img src="{$g_image}/form/namebox_top.png" width="303" height="14" /></td>
+						                    </tr>
+						                    <tr>
+						                      <td background="{$g_image}/form/namebox.png">
+							                      <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+							                          <tr>
+							                            <td width="30%">
+							                            {if !$user_image}
+															<img src="{$UPLOAD_URL}/default.gif" id="PreviewImage" width="80" height="100">
+														{else}
+							                            	<img src="{$UPLOAD_URL}/account/{$userArr.user_image}?{$rand}" width="80" height="100"/>
+							                            {/if}
+							                            </td>
+							                            <td width="70%">
+								                            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+								                                <tr>
+								                                  <td valign="top" width="22%" class="style24" height="18">ชื่อ-สกุล</td>
+								                                  <td align="left">:&nbsp;</td>
+								                                  <td height="18" class="style24"> {$userArr.user_name} {$userArr.user_lname}</td>
+								                                </tr>
+								                                <tr>
+								                                  <td valign="top" height="18" class="style24">รหัส </td>
+								                                  <td align="left">:&nbsp;</td>
+								                                  <td height="18" class="style24"> {if $userArr.user_code eq '1001'}-contact-{else}{$userArr.user_code}{/if}</td>
+								                                </tr>
+								                                <tr>
+								                                  <td valign="top" height="18" class="style24">ตำแหน่ง</td>
+								                                  <td align="left">:&nbsp;</td>
+								                                  <td height="18" class="style24"> {$userArr.org_position_name_th}</td>
+								                                </tr>
+								                                <tr>
+								                                  <td valign="top" height="18" class="style24">แผนก</td>
+								                                  <td valign="top" align="left">:&nbsp;</td>
+								                                  <td valign="top" height="18" class="style24"> {$userArr.org_sec_name_th}</td>
+								                                </tr>
+								                            </table>
+							                            </td>
+							                          </tr>
+							                      </table>
+						                      </td>
+						                    </tr>
+						                    <tr>
+						                      <td><img src="{$g_image}/form/namebox_bottom.png" width="303" height="15" /></td>
+						                    </tr>
+					                	</table>
+					                </td>
+					                <td width="3%">&nbsp;</td>
+					            </tr>
+					            <!-- Month Tab-->
+			              		<tr>
+			                		<td>
+			                			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						                    <tr>
+						                      <td width="97%">
+							                      <table width="65%" border="0" cellspacing="0" cellpadding="0">
+							                          <tr>
+							                            <td><table width="444" border="0" cellspacing="0" cellpadding="0">
+							                                <tr>
+							                                  <td width="25"><img src="{$g_image}/form/month_03.gif" width="26" height="24" /></td>
+							                                  <td width="83"><a href="javascript:tabSubmit('pitab','08{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month04','',1)" onmouseover="MM_nbGroup('over','month04','{$g_image}/form/month-over_04.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '08'}src="{$g_image}/form/month-over_04.gif"{else}src="{$g_image}/form/month_04.gif"{/if} alt="" width="82" height="24" border="0" id="month04" /></a></td>
+							                                  <td width="84"><a href="javascript:tabSubmit('pitab','09{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month05','',1)" onmouseover="MM_nbGroup('over','month05','{$g_image}/form/month-over_05.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '09'}src="{$g_image}/form/month-over_05.gif"{else}src="{$g_image}/form/month_05.gif"{/if} alt="" width="84" height="24" border="0" id="month05" /></a></td>
+							                                  <td width="84"><a href="javascript:tabSubmit('pitab','10{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month06','',1)" onmouseover="MM_nbGroup('over','month06','{$g_image}/form/month-over_06.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '10'}src="{$g_image}/form/month-over_06.gif"{else}src="{$g_image}/form/month_06.gif"{/if} alt="" width="84" height="24" border="0" id="month06" /></a></td>
+							                                  <td width="84"><a href="javascript:tabSubmit('pitab','11{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month07','',1)" onmouseover="MM_nbGroup('over','month07','{$g_image}/form/month-over_07.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '11'}src="{$g_image}/form/month-over_07.gif"{else}src="{$g_image}/form/month_07.gif"{/if} alt="" width="84" height="24" border="0" id="month07" /></a></td>
+							                                  <td width="84"><a href="javascript:tabSubmit('pitab','12{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month08','',1)" onmouseover="MM_nbGroup('over','month08','{$g_image}/form/month-over_08.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '12'}src="{$g_image}/form/month-over_08.gif"{else}src="{$g_image}/form/month_08.gif"{/if} alt="" width="83" height="24" border="0" id="month08" /></a></td>
+							                                  <!-- <td width="83"><a href="javascript:openLinkPage('PI','{$user}','','08{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month04','',1)" onmouseover="MM_nbGroup('over','month04','{$g_image}/form/month-over_04.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '08'}src="{$g_image}/form/month-over_04.gif"{else}src="{$g_image}/form/month_04.gif"{/if} alt="" width="82" height="24" border="0" id="month04" /></a></td>
+							                                  <td width="84"><a href="javascript:openLinkPage('PI','{$user}','','09{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month05','',1)" onmouseover="MM_nbGroup('over','month05','{$g_image}/form/month-over_05.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '09'}src="{$g_image}/form/month-over_05.gif"{else}src="{$g_image}/form/month_05.gif"{/if} alt="" width="84" height="24" border="0" id="month05" /></a></td>
+							                                  <td width="84"><a href="javascript:openLinkPage('PI','{$user}','','10{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month06','',1)" onmouseover="MM_nbGroup('over','month06','{$g_image}/form/month-over_06.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '10'}src="{$g_image}/form/month-over_06.gif"{else}src="{$g_image}/form/month_06.gif"{/if} alt="" width="84" height="24" border="0" id="month06" /></a></td>
+							                                  <td width="84"><a href="javascript:openLinkPage('PI','{$user}','','11{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month07','',1)" onmouseover="MM_nbGroup('over','month07','{$g_image}/form/month-over_07.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '11'}src="{$g_image}/form/month-over_07.gif"{else}src="{$g_image}/form/month_07.gif"{/if} alt="" width="84" height="24" border="0" id="month07" /></a></td>
+							                                  <td width="84"><a href="javascript:openLinkPage('PI','{$user}','','12{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month08','',1)" onmouseover="MM_nbGroup('over','month08','{$g_image}/form/month-over_08.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '12'}src="{$g_image}/form/month-over_08.gif"{else}src="{$g_image}/form/month_08.gif"{/if} alt="" width="83" height="24" border="0" id="month08" /></a></td>
+							                                   -->
+							                                  <td><img src="{$g_image}/form/month_09.gif" width="29" height="24" /></td>
+							                                </tr>
+							                            </table></td>
+							                          </tr>
+							                          <tr>
+							                            <td><table width="444" border="0" cellspacing="0" cellpadding="0">
+							                                <tr>
+							                                {*if $yearNow gt $fix_year*}
+							                                  <td><a href="javascript:tabSubmit('pitab','01{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month11','',1)" onmouseover="MM_nbGroup('over','month11','{$g_image}/form/month-over_11.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '01'}src="{$g_image}/form/month-over_11.gif"{else}src="{$g_image}/form/month_11.gif"{/if} alt="" width="83" height="30" border="0" id="month11"/></a></td>
+							                                  <td><a href="javascript:tabSubmit('pitab','02{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month12','',1)" onmouseover="MM_nbGroup('over','month12','{$g_image}/form/month-over_12.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '02'}src="{$g_image}/form/month-over_12.gif"{else}src="{$g_image}/form/month_12.gif"{/if} alt="" width="83" height="30" border="0" id="month12" /></a></td>
+							                                {*else*}
+							                                  <!-- td><a href="javascript:#;" target="_top" onclick="javascript:_alert('Can\'t display history January 2014.');" ><img {if $monthNow eq '01'}src="{$g_image}/form/month-over_11.gif"{else}src="{$g_image}/form/month_11.gif"{/if} alt="" width="83" height="30" border="0" id="month11"/></a></td>
+							                                  <td><a href="javascript:#;" target="_top" onclick="javascript:_alert('Can\'t display history February 2014.');" ><img {if $monthNow eq '02'}src="{$g_image}/form/month-over_12.gif"{else}src="{$g_image}/form/month_12.gif"{/if} alt="" width="83" height="30" border="0" id="month12" /></a></td-->
+							                                {*/if*}
+							                                  <td><a href="javascript:tabSubmit('pitab','03{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month13','',1)" onmouseover="MM_nbGroup('over','month13','{$g_image}/form/month-over_13.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '03'}src="{$g_image}/form/month-over_13.gif"{else}src="{$g_image}/form/month_13.gif"{/if} alt="" width="71" height="30" border="0" id="month13" /></a></td>
+							                                  <td><a href="javascript:tabSubmit('pitab','04{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month14','',1)" onmouseover="MM_nbGroup('over','month14','{$g_image}/form/month-over_14.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '04'}src="{$g_image}/form/month-over_14.gif"{else}src="{$g_image}/form/month_14.gif"{/if} alt="" width="60" height="30" border="0" id="month14" /></a></td>
+							                                  <td><a href="javascript:tabSubmit('pitab','05{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month15','',1)" onmouseover="MM_nbGroup('over','month15','{$g_image}/form/month-over_15.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '05'}src="{$g_image}/form/month-over_15.gif"{else}src="{$g_image}/form/month_15.gif"{/if} alt="" width="59" height="30" border="0" id="month15" /></a></td>
+							                                  <td><a href="javascript:tabSubmit('pitab','06{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month16','',1)" onmouseover="MM_nbGroup('over','month16','{$g_image}/form/month-over_16.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '06'}src="{$g_image}/form/month-over_16.gif"{else}src="{$g_image}/form/month_16.gif"{/if} alt="" width="59" height="30" border="0" id="month16" /></a></td>
+							                                  <td><a href="javascript:tabSubmit('pitab','07{$yearNow}', '');" target="_top" onclick="MM_nbGroup('down','group1','month17','',1)" onmouseover="MM_nbGroup('over','month17','{$g_image}/form/month-over_17.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '07'}src="{$g_image}/form/month-over_17.gif"{else}src="{$g_image}/form/month_17.gif"{/if} alt="" width="57" height="30" border="0" id="month17" /></a></td>
+							                                  <!-- <td><a href="javascript:openLinkPage('PI','{$user}','','01{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month11','',1)" onmouseover="MM_nbGroup('over','month11','{$g_image}/form/month-over_11.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '01'}src="{$g_image}/form/month-over_11.gif"{else}src="{$g_image}/form/month_11.gif"{/if} alt="" width="83" height="30" border="0" id="month11" /></a></td>
+							                                  <td><a href="javascript:openLinkPage('PI','{$user}','','02{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month12','',1)" onmouseover="MM_nbGroup('over','month12','{$g_image}/form/month-over_12.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '02'}src="{$g_image}/form/month-over_12.gif"{else}src="{$g_image}/form/month_12.gif"{/if} alt="" width="83" height="30" border="0" id="month12" /></a></td>
+							                                  <td><a href="javascript:openLinkPage('PI','{$user}','','03{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month13','',1)" onmouseover="MM_nbGroup('over','month13','{$g_image}/form/month-over_13.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '03'}src="{$g_image}/form/month-over_13.gif"{else}src="{$g_image}/form/month_13.gif"{/if} alt="" width="71" height="30" border="0" id="month13" /></a></td>
+							                                  <td><a href="javascript:openLinkPage('PI','{$user}','','04{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month14','',1)" onmouseover="MM_nbGroup('over','month14','{$g_image}/form/month-over_14.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '04'}src="{$g_image}/form/month-over_14.gif"{else}src="{$g_image}/form/month_14.gif"{/if} alt="" width="60" height="30" border="0" id="month14" /></a></td>
+							                                  <td><a href="javascript:openLinkPage('PI','{$user}','','05{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month15','',1)" onmouseover="MM_nbGroup('over','month15','{$g_image}/form/month-over_15.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '05'}src="{$g_image}/form/month-over_15.gif"{else}src="{$g_image}/form/month_15.gif"{/if} alt="" width="59" height="30" border="0" id="month15" /></a></td>
+							                                  <td><a href="javascript:openLinkPage('PI','{$user}','','06{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month16','',1)" onmouseover="MM_nbGroup('over','month16','{$g_image}/form/month-over_16.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '06'}src="{$g_image}/form/month-over_16.gif"{else}src="{$g_image}/form/month_16.gif"{/if} alt="" width="59" height="30" border="0" id="month16" /></a></td>
+							                                  <td><a href="javascript:openLinkPage('PI','{$user}','','07{$yearNow}','{$status}','{$copy_to}');" target="_top" onclick="MM_nbGroup('down','group1','month17','',1)" onmouseover="MM_nbGroup('over','month17','{$g_image}/form/month-over_17.gif','',1)" onmouseout="MM_nbGroup('out')"><img {if $monthNow eq '07'}src="{$g_image}/form/month-over_17.gif"{else}src="{$g_image}/form/month_17.gif"{/if} alt="" width="57" height="30" border="0" id="month17" /></a></td> -->
+							                                </tr>
+							                            </table></td>
+							                          </tr>
+							                      </table>
+							                   </td>
+						                    </tr>
+
+						                </table>
+						            </td>
+				              </tr>
+				              <!-- End Month Tab-->
+
+				              <!-- Line -->
+				              <tr valign="top">
+				                <td height="3" valign="top">
+					                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					                    <tr>
+					                    	<td background="{$g_image}/form/bg_underline-link.gif"><img src="{$g_image}/form/bg_underline-link.gif" width="3" height="3" /></td>
+					                    </tr>
+					                </table>
+				                </td>
+				                <td valign="top">
+					                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					                    <tr>
+					                      <td valign="top" background="{$g_image}/form/bg_underline-link.gif"><img src="{$g_image}/form/bg_underline-link.gif" width="3" height="3" /></td>
+					                    </tr>
+					                </table>
+				                </td>
+				                <td valign="top">
+				                	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					                    <tr>
+					                      <td valign="top" background="{$g_image}/form/bg_underline-link.gif"><img src="{$g_image}/form/bg_underline-link.gif" width="3" height="3" /></td>
+					                    </tr>
+				                  	</table>
+				                </td>
+				              </tr>
+				              <!-- End Line -->
+
+				              <tr >
+				                <td>
+					                <table  border="0" cellspacing="0" cellpadding="0">
+					                    <!--tr>
+					                      <td width="150" style="cursor: pointer;" height="24" background="{$g_image}/form/mi-pi-linkover_20.png" onclick="openLinkPage('PI','{$user}','T1','{$monthNow}{$yearNow}','{$status}','{$copy_to}');"><div align="center" class="style7">ประเมินเดือนปัจจุบัน</div></td>
+					                      <td width="150" style="cursor: pointer;" background="{$g_image}/form/mi-pi-linkover_21.png" onclick="openLinkPage('PI','{$user}','T2','{$monthNow}{$yearNow}','{$status}','{$copy_to}');"><div align="center" class="style8">ประเมินเดือนถัดไป</div></td>
+					                      <td width="149" style="cursor: pointer;" background="{$g_image}/form/mi-pi-linkover_22.png" onclick="openLinkPage('PI','{$user}','T3','{$monthNow}{$yearNow}','{$status}','{$copy_to}');"><div align="center" class="style9">สรุปผล</div></td>
+					                    </tr-->
+					                    
+					                    <tr>
+					                      {if $yearNow gt $fix_year}
+					                      <td width="150" style="cursor: pointer;" height="24" background="{$g_image}/form/mi-pi-linkover_20.png" onclick="javascript:tabSubmit('pitab','{$monthNow}{$yearPrv}','T1');"><div align="center" class="style7">ประเมินในปี {$yearPrv}</div></td>
+					                      {else}
+					                      <td width="150" style="cursor: pointer;" height="24" background="{$g_image}/form/mi-pi-linkover_20.png" onclick="javascript:_alert('Can\'t display history year '+{$yearPrv}+' on this page.');"><div align="center" class="style7">ประเมินในปี {$yearPrv}</div></td>
+					                      {/if}
+					                      <td width="150" style="cursor: pointer;" background="{$g_image}/form/mi-pi-linkover_21.png" onclick="javascript:tabSubmit('pitab','{$monthNow}{$year}','T2');"><div align="center" class="style8">ประเมินในปี {$year}</div></td>
+					                      <td width="149" style="cursor: pointer;" background="{$g_image}/form/mi-pi-linkover_22.png" onclick="javascript:tabSubmit('pitab','{$monthNow}{$yearNext}','T3');"><div align="center" class="style9">ประเมินในปี {$yearNext}</div></td>
+					                    </tr>
+					                    <!-- <tr>
+					                      <td width="150" style="cursor: pointer;" height="24" background="{$g_image}/form/mi-pi-linkover_20.png" onclick="openLinkPage('PI','{$user}','T1','{$monthNow}{$yearPrv}','{$status}','{$copy_to}');"><div align="center" class="style7">ประเมินในปี {$yearPrv}</div></td>
+					                      <td width="150" style="cursor: pointer;" background="{$g_image}/form/mi-pi-linkover_21.png" onclick="openLinkPage('PI','{$user}','T2','{$monthNow}{$year}','{$status}','{$copy_to}');"><div align="center" class="style8">ประเมินในปี {$year}</div></td>
+					                      <td width="149" style="cursor: pointer;" background="{$g_image}/form/mi-pi-linkover_22.png" onclick="openLinkPage('PI','{$user}','T3','{$monthNow}{$yearNext}','{$status}','{$copy_to}');"><div align="center" class="style9">ประเมินในปี {$yearNext}</div></td>
+					                    </tr> -->
+					                </table>
+				                </td>
+				              </tr>
+				              <tr><td>&nbsp;</td></tr>
+			            	</table>
+			            	<table width="50%" border="0" cellspacing="0" cellpadding="0">
+				              <tr>
+				             	
+				                <td width="50px"><img src="{$g_image}/form/Arrow-Left.gif" width="40" height="40" /></td>
+				                {*{if $Tab eq 'T1' || !$Tab}
+				                <td width="238">&nbsp;&nbsp;&nbsp;<span class="style15">ประเมินเดือนปัจจุบัน </span></td>
+				              	{elseif $Tab eq 'T2'}
+				              	<td width="238">&nbsp;&nbsp;&nbsp;<span class="style15">ประเมินเดือนถัดไป </span></td>
+				              	{elseif $Tab eq 'T3'}
+				              	<td width="238">&nbsp;&nbsp;&nbsp;<span class="style15">สรุปผล </span></td>
+				              	{/if}*}
+				              	{if $status eq 'W'}
+				             	<td width="30%" class="style15" style="font-size:18px;">View History PI >> </td>
+								{/if}
+				              	<td align="left">&nbsp;&nbsp;&nbsp;<span class="style15">{$TabName}</span></td>
+				              </tr>
+			            	</table>
+			            </td>
+			          </tr>
+			          <tr>
+			            <td>
+							<table width="100%" cellspacing="1" cellpadding="0" border="0">
+									<tr bgcolor="#ffffff" height="30">
+								    	<td valign="top" class="font11b" width="15%" align="left" >&nbsp;Evaluate Objective :</td>
+								    	<td class="font12" align="left" >{$headArr.mph_objective}</td>
+									</tr>
+							</table>
+						</td>
+			          </tr>
+			          <tr>
+			            <td>
+							<table id="table_list" bgcolor="#ffffff" cellpadding="0" cellspacing="1" width="100%" border="0" style="border:1px solid #B9B9B9;">
+									<tr bgcolor="#C6DCFF" height="30">
+										<td class="font11b" width="3%" align="center" >ลำดับ</td>
+								    	<td class="font11b" align="center" width="250">หัวข้อของการประเมิน</td>
+								    	<td class="font11b" width="7%" align="center" >น้ำหนักคะแนน</td>								  
+								    	{assign var=i value=1}
+								    	{section name=col loop=$column}
+								    	<td class="font11" width="6%" align="center" style="cursor: pointer;" title="{$userColumn[$i]}"><b>ครั้ง {$i}</b><br>{$userColumn[$i]}</td {$i++}>
+								    	{/section}
+										{if $headArr.mph_status neq 'R' && $status neq 'W' }
+								    	<td class="font11b" width="7%" align="center" >คะแนนที่ได้ <font color="#EE2C2C">*</font></td>
+								    	{/if}
+								    	<td class="font11b" width="7%" align="center" >คะแนนรวม</td>
+								    	{if $headArr.mph_status eq 'C' || $change}
+								    	
+								    	<!-- Hidden for view history PI #natcha -->{if $status neq 'W'}
+								    	<td class="font11b" width="5%" align="center" >Action</td>
+								    	{/if}
+								    	
+								    	{/if}
+									</tr>
+									{if $dataRows}
+									{assign var=i value=0}
+									{foreach from=$dataRows item=head2}
+										{foreach from=$head2 item=head key=key}
+											{if $key eq 'subject'}
+											<tr bgcolor="#DAECF4" id="main_{$i}" height="20" >
+												<td class="font11" align="center" width="3%">{$i+1}</td>
+												<td class="font11" align="left" >{$head.mpl_subject|replace:"||":"'"}
+													<input type="hidden" name="detail[{$i}][mpl_id]" id="id_{$i}" size="10" value="{$head.mpl_id}">
+													<input type="hidden" name="detail[{$i}][mpl_type]" id="type_{$i}" size="10" value="{$head.mpl_type}">
+													<input type="hidden" name="detail[{$i}][mpl_status]" id="status_{$i}" size="10" value="{$head.mpl_status}">
+													<input type="hidden" name="detail[{$i}][mpl_subject]" id="subject_{$i}" size="20" value="{$head.mpl_subject|replace:"||":"'"}">
+												</td>
+												<td class="font11b" align="center" >
+													{if $column || $headArr.mph_status eq 'F'}
+														{$head.mpl_weight|number_format:0}
+														<input type="hidden" name="detail[{$i}][mpl_weight]" size="5" readonly id="mwscoll_{$i}" value="{$head.mpl_weight|number_format:0}">
+													{else}
+														<input type="text" name="detail[{$i}][mpl_weight]" size="5" {if $head.mpl_weight eq -1}readonly{/if} id="mwscoll_{$i}" value="{$head.mpl_weight|number_format:0}" onKeyup="ChkIntNoDot(this)">												
+													{/if}
+												</td>
+												{assign var=i2 value=1}
+									    		{section name=col loop=$column}
+												<td class="font11" align="left" ></td>
+												{/section}
+												{if $headArr.mph_status neq 'R' && $status neq 'W'}
+												<td class="font11" align="left" ></td>
+												{/if}
+												<td class="font11" align="left" ></td>
+												{if $headArr.mph_status eq 'C' || $change}
+												
+												<!-- Hidden for view history PI #natcha -->{if $status neq 'W'}
+												<td class="font11" align="center" >												
+													<a href="javascript:void(0)" onClick="AddRowsParent('{$i}');">
+														<img src="{$g_image}/add.gif" border="0" >
+													</a>												
+												</td>
+												{/if}
+												
+												{/if}
+											</tr>										
+											{elseif $key eq 'detail'}
+												{assign var=ii value=1}
+												{foreach from=$head item=item}
+												<tr id="sub_{$i}_{$ii}" height="20" bgcolor="{cycle values="#ffffff,#F9FAFB"}">
+													<td class="font11" align="left" width="3%">&nbsp;</td>
+													<td class="font11" align="left" >
+													{if $column || $headArr.mph_status eq 'F'}
+														{$item.mpl_subject|replace:"||":"'"}
+														<input type="hidden" name="detail[{$i}][line][{$ii}][mpl_subject]" id="subject_{$i}_{$ii}" size="20" value="{$item.mpl_subject|replace:"||":"'"}">
+													{else}
+														{if $status eq 'V'}
+														{$item.mpl_subject|replace:"||":"'"}
+														<input type="hidden" name="detail[{$i}][line][{$ii}][mpl_subject]" id="subject_{$i}_{$ii}" size="20" value="{$item.mpl_subject|replace:"||":"'"}">
+														{else}
+														<input type="text" name="detail[{$i}][line][{$ii}][mpl_subject]" id="subject_{$i}_{$ii}" size="70" value="{$item.mpl_subject|replace:"||":"'"}">
+														{/if}
+													{/if}
+														<input type="hidden" name="detail[{$i}][line][{$ii}][mpl_id]" id="id_{$i}_{$ii}" size="10" value="{$item.mpl_id}">
+														<input type="hidden" name="detail[{$i}][line][{$ii}][mpl_type]" id="type_{$i}_{$ii}" size="10" value="D">
+														<input type="hidden" name="detail[{$i}][line][{$ii}][mpl_status]" id="status_{$i}_{$ii}" size="10" value="N">
+													</td>
+													<td class="font11" align="center" >
+														{if $headArr.mph_status neq 'F' && $headArr.mph_status neq 'R'}
+															{if $column}
+																{if $item.mpl_weight>0}{$item.mpl_weight|number_format:0}{/if}
+																<input type="hidden" name="detail[{$i}][line][{$ii}][mpl_weight]" id="wscoll_{$i}_{$ii}" size="5" readonly value="{if $item.mpl_weight>0}{$item.mpl_weight|number_format:0}{/if}">
+															{else}
+																{if $status eq 'V'}
+																	{if $headArr.mph_status eq 'C'}
+																		{if $headArr.mph_user eq $headArr.user_first_recive}
+																			<!-- 01input--{$i}-{$ii} --><input type="text" name="detail[{$i}][line][{$ii}][mpl_weight]" id="wscoll_{$i}_{$ii}" size="5" onKeyup="ChkIntNoDot(this);chkRangeWeight(this, '{$i}_{$ii}');_SumW();_SumT('{$i}_{$ii}');" value="{if $item.mpl_weight>0}{$item.mpl_weight|number_format:0}{/if}">
+																		{else}
+																			02<input type="text" name="detail[{$i}][line][{$ii}][mpl_weight]" id="wscoll_{$i}_{$ii}" size="5" {if $item.mpl_weight>0}readonly{/if} onKeyup="ChkIntNoDot(this);_SumW();_SumT('{$i}_{$ii}');" value="{if $item.mpl_weight>0}{$item.mpl_weight|number_format:0}{/if}">
+																		{/if}
+																	{else}
+																		<input type="text" name="detail[{$i}][line][{$ii}][mpl_weight]" id="wscoll_{$i}_{$ii}" size="5" {if $item.mpl_weight>0}readonly{/if} onKeyup="ChkIntNoDot(this);_SumW();_SumT('{$i}_{$ii}');" value="{if $item.mpl_weight>0}{$item.mpl_weight|number_format:0}{/if}">																	
+																	{/if}
+																{else}
+																	<input type="text" name="detail[{$i}][line][{$ii}][mpl_weight]" id="wscoll_{$i}_{$ii}" size="5" onKeyup="ChkIntNoDot(this);_SumW();_SumT('{$i}_{$ii}');" value="{if $item.mpl_weight>0}{$item.mpl_weight|number_format:0}{/if}">												
+																{/if}
+															{/if}
+														{else}	
+															{if $headArr.mph_status eq 'F'}	
+																{if $item.mpl_weight>0}{$item.mpl_weight|number_format:0}{/if}
+																<input type="hidden" name="detail[{$i}][line][{$ii}][mpl_weight]" id="wscoll_{$i}_{$ii}" size="5" readonly value="{if $item.mpl_weight>0}{$item.mpl_weight|number_format:0}{/if}">													
+															{else}		
+																<input type="text" name="detail[{$i}][line][{$ii}][mpl_weight]" id="wscoll_{$i}_{$ii}" size="5" readonly value="{if $item.mpl_weight>0}{$item.mpl_weight|number_format:0}{/if}">																
+															{/if}
+														{/if}
+													</td>
+													{assign var=i2 value=0}
+										    		{section name=col loop=$column}
+													<td class="font11" align="center" >
+														{$item.subCol.$i2.sl_point|number_format:1}
+													</td {$i2++}>
+													{/section}
+													{if $headArr.mph_status neq 'R' && $status neq 'W'}
+													<td class="font11" align="center" >
+														{if $headArr.mph_status eq 'F'}
+															{if $item.mpl_point>0}{$item.mpl_point|number_format:0}{/if}
+														{elseif $headArr.mph_status eq 'C'}
+															{if $headArr.mph_user eq $headArr.user_first_recive}
+															<!-- 111 --><input type="text" name="detail[{$i}][line][{$ii}][mpl_point]" id="rscoll_{$i}_{$ii}" size="5" onKeyup="ChkIntNoDot(this);CheckRangeScore(this);_SumT('{$i}_{$ii}');" value="{if $item.mpl_point>0}{$item.mpl_point|number_format:0}{/if}">
+															{/if}
+														{else }
+														<input type="text" name="detail[{$i}][line][{$ii}][mpl_point]" id="rscoll_{$i}_{$ii}" size="5" onKeyup="ChkIntNoDot(this);CheckRangeScore(this);_SumT('{$i}_{$ii}');" value="{if $item.mpl_point>0}{$item.mpl_point|number_format:0}{/if}">
+														{/if}
+													</td>
+													{/if}
+													
+													<td class="font11" align="center" >
+														{if $headArr.mph_status neq 'F'}
+															{if $headArr.mph_status eq 'C'}		
+																{if $headArr.mph_user eq $headArr.user_first_recive}
+																<input type="text" id="tscoll_{$i}_{$ii}" size="5" readonly value="{if $item.mpl_weight*$item.mpl_point>0}{$item.mpl_weight*$item.mpl_point|number_format:0}{/if}">
+																{/if}
+															{else}
+															
+															{if $status neq 'W'}
+															<input type="text" id="tscoll_{$i}_{$ii}" size="5" readonly value="{if $item.mpl_weight*$item.mpl_point>0}{$item.mpl_weight*$item.mpl_point|number_format:0}{/if}">
+															{else}
+															{$item.mpl_weight*$item.mpl_point|number_format:0}
+															{/if}
+
+															{/if}
+														{else}
+														{$item.mpl_weight*$item.mpl_point|number_format:0}
+														<input type="hidden" id="tscoll_{$i}_{$ii}" size="5" readonly value="{$item.mpl_weight*$item.mpl_point|number_format:0}">
+														{/if}
+													</td>
+													{if $headArr.mph_status eq 'C' || $change}
+													{if $status neq 'W'}
+													<td class="font11" align="center" >
+														<a href="javascript:void(0)" onClick="DelRowParent('{$i}','{$ii}');">
+															<img src="{$g_image}/deletep.gif" border="0" >
+														</a>
+													</td>
+													{/if}
+													{/if}
+												</tr {$ii++}>
+												{/foreach}												
+											{/if}											
+										{/foreach}
+										<tbody id="show_parant{$i}"></tbody>
+									{assign var=i value=$i+1}
+									{/foreach}
+									{/if}
+									<tbody id="show_main"></tbody>									
+									<tr height="20" bgcolor="#CCCCCC">
+								    	<td colspan="2" align="right" class="font11b">คะแนนรวม &nbsp;</td>
+								    	<td align="center" ><span id="weight">{$sum_weight|number_format:0}</span></td>
+								     	{assign var=t value=1}
+								     	{section name=col loop=$column}
+								     	<td align="center">{$totalLine[$t].scoll|number_format:2}</td {$t++}>
+								     	<!-- natcharee hidden grade @2014-04-07 -->
+								     	<!--td align="center">{*$totalLine[$t].grade*}:{*$totalLine[$t].scoll|number_format:2*}</td {*$t++*}-->
+								     	{/section}
+								     	{if $headArr.mph_status neq 'R' && $status neq 'W'}
+								    	<td align="center" ><span id="point"></span></td>
+								    	{/if}
+								    	<!-- natcharee hidden grade @2014-04-07 -->
+								    	<td align="center" ><span id="point_grade" style="display:none">{if $headArr.mph_grade}{$headArr.mph_grade}:{/if}</span><span id="point_total">{if $sum_point}{$sum_point|number_format:2}{/if}</span></td>
+								    	{if $headArr.mph_status eq 'C' || $change}
+								    	
+								    	<!-- Hidden for view history PI #natcha -->{if $status neq 'W'}
+								    	<td align="center" ></td>
+								    	{/if}
+								    	
+								    	{/if}
+									</tr>
+							</table>
+						</td>
+			          </tr>
+			          {if $headArr.mph_status eq 'C'}
+			          <tr>
+			             <td>
+				            <table width="60%" border="0" align="left" cellpadding="0" cellspacing="0">
+				                <tr>
+						             <td width="60%">
+						              <fieldset >
+						             	<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+							                <tr height="20">
+								                <td align="left" colspan="4" class="font12b">&nbsp; เพิ่มข้อมูล </td>
+							                </tr>
+							                <tr height="25">
+								                <td valign="top" align="right" width="18%" class="font12">หัวข้อการประเมิน :</td>
+								                <td align="left" colspan="3">
+								                    <input type="text" name="subject" id="subject" class="textfield_7c">
+								                    <a href="javascript:void(0)" onClick="AddRows();">
+													<img src="{$g_image}/add.gif" border="0" >
+													</a>
+								                </td>
+							                </tr>
+							                <tr height="25">
+								                <td valign="top" align="right" width="18%" class="font12">น้ำหนักคะแนน :</td>
+								                <td align="left" colspan="3">
+								                    <input type="text" name="wscoll" id="wscoll" class="textfield_3c" onKeyup="ChkIntNoDot(this);">
+								                </td>
+							                </tr>
+							            </table>
+				           			 </fieldset >
+				            		</td>
+				                </tr>
+				            </table>
+			             </td>
+			        </tr>
+			        {/if}
+			        <tr>
+			             <td valign="top">
+				            <table valign="top" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+				               <tr valign="top">
+						             <td width="65%" valign="top">
+						              	<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+						              		<tr>
+								                <td valign="top" align="left" class="font12">
+								                	<table height="40" width="100%" valign="top" border="0" cellpading="0" cellspacing="0">
+								                		<tr>
+								                			<td class="font12" style="color:#0000CD;font-weight:bold;line-height:22px;"><font color="#EE2C2C">*</font> เกณฑ์การให้คะแนน </br>&nbsp;&nbsp;&nbsp;0-ไม่ดำเนินการ , 1-บางส่วนแล้วเสร็จ 60% , 2-ส่วนใหญ่แล้วเสร็จ 80% , 3-แล้วเสร็จ 100% , <br/>&nbsp;&nbsp; 4-ทำได้สูงกว่าเป้าหมาย 120% , 5-ทำได้สูงกว่าเป้าหมายมาก 150%</td>
+								                		</tr>
+								                	</table>
+								                </td>
+								            </tr>
+							                <tr>
+								                <td valign="top" align="left" class="font12">&nbsp; Remark : (ประเมินตนเองคะแนน เท่ากับหรือมากกว่า 3 กรุณาใส่รายละเอียดเพิ่มเติม)</td>
+								            </tr>
+							                <tr>
+								                <td valign="top" align="left" class="font12">&nbsp;
+								                    <textarea name="head[mph_desc]" id="detail" rows="7" class="textfield_10c">{$headArr.mph_desc|replace:"||":"'"}</textarea>
+								            	</td>
+								            </tr>
+								            <tr>
+							                	<td align="left">
+							                	<br>&nbsp; หมายเหตุ : คะแนนในช่อง คะแนนรวม เป็นคะแนนรวมทั้งหมดที่กรอกเข้าไป ล่าสุด
+							                	<br><dd>ปุ่ม save คือ การบันทึกข้อมูลไว้ โดยที่สถานะใบประเมินยังอยู่ที่ตนเองถ้าต้องการส่ง ต้องทำการคลิกปุ่ม Send to
+							                	<br><dd>ปุ่ม Send to คือ การส่งต่อข้อมูลไปให้คนที่เราเลือกให้รับใบประเมิน
+							                	<br><dd>สำหรับ คนที่มีหน้าที่ใส่รายละเอียดในใปประเมิน การคลิกปุ่ม send to คือการส่งหาเจ้าของใบประเมินนั้นโดยที่ไม่ต้องเลือกคนรับใบประเมิน
+							                	</td>
+							                </tr>
+							            </table>
+				            		</td>
+				            		<td valign="top">
+					            		<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+					            			<tr height="30">
+						            			<td nowrap>
+						            			{if $dataRows}
+							            			<img src="{$g_image}/form/start.png" border="0" title="[ ฝ่ายบุคคล ]">
+							            			<img src="{$g_image}/form/next.gif" border="0" ><img src="{$g_image}/form/user.png" title="[ {$headArr.first_recive} ]" border="0" width="20" height="20">
+							            			{if $headArr.mph_status eq 'P' || $headArr.mph_status eq 'R' || $headArr.mph_status eq 'F'}
+														{assign var=u value=1}
+									    				{section name=col loop=$column}
+								            			<img src="{$g_image}/form/next.gif" border="0" ><img src="{$g_image}/form/user.png" title="[ {$userColumn[$u]} ]" border="0" width="20" height="20">
+							            				{assign var=u value=$u+1}
+							            				{/section}
+							            				{if $headArr.mph_status eq 'P'}
+							            				<img src="{$g_image}/form/next.gif" border="0" ><img src="{$g_image}/form/pink.png" title="[ {$user_flow.user_name} ]" border="0" width="16" height="16">
+							            				{/if}
+						            				{/if}
+						            				{if $headArr.mph_status eq 'F'}
+						            				<img src="{$g_image}/form/next.gif" border="0" ><img src="{$g_image}/form/end.gif" title="[ การเงิน ]" border="0" >
+						            				{/if}
+						            			{/if}
+						            			</td>
+					            			</tr>
+					            		</table>
+				            		</td>
+				                </tr>
+				            </table>
+			             </td>
+			        </tr>
+			        <tr ><td colspan="2"height="20"></td></tr>
+			    {if $status neq 'W' && $status neq 'O'}
+					{if $headArr}
+					{if $headArr.mph_status eq 'F' || $headArr.mph_status eq 'R'}
+					{if $_profile->user_header eq 'Y'}
+					<tr bgcolor="#EBEBEB">
+						<td colspan="2" align="right" >
+						{if $status eq 'B' && $headArr.mph_status eq 'F' && $_profile->lookup_code eq 'AM'}
+							<input id="btn_list" title="Send to" class="btn_tools" value="  Send to" onclick="openPopup('workflow/evaluate/userpopup/pageview/pi/status/{$status}/depart/{$headArr.user_sec_depart}');" type="button">
+							<input id="btn_back" title="Back" class="btn_tools" onclick="openPage('workflow/evaluate/backward');"  value="  Back" type="button">
+						{else}
+							<!--input id="btn_copy" title="copy" class="btn_tools" onclick="copyData('{$headArr.mph_id}','PI','{$copy_to}');" value="   Copy" type="button"-->
+							<input id="btn_copy" title="copy" class="btn_tools" onclick="copyDataTo('{$headArr.mph_id}','{$headArr.mph_month}','PI','{$headArr.mph_user}');" value="   Copy" type="button">
+							
+						{/if}
+						</td>
+					</tr>
+					{/if}
+					
+					{else}
+					<tr bgcolor="#EBEBEB">
+						<td colspan="2" align="right" >
+							{if $status neq 'E'}
+							<input id="btn_save" title="Save" class="btn_tools" onclick="javascript:if(checkTotalBeforeSave())sendDataToSave('{$headArr.mph_status}','pi','{$status}','save');" value="   Save" type="button">
+							{/if}
+							{if !$Finish}
+								{if $headArr.mph_status eq 'C'}
+									{if $headArr.mph_user eq $headArr.user_first_recive}
+										<input id="btn_list" title="Send to" class="btn_tools" value="  Send to" onclick="chkScoll('weight','workflow/evaluate/userpopup/pageview/pi/status/{$status}/depart/{$headArr.user_sec_depart}','{$status}');" type="button">
+									{else}
+										<input id="btn_list" title="Send to Owner" class="btn_tools" value="  Send to Owner" onclick="chkScollSend('weight','P','pi','{$status}','{$headArr.mph_user}','{$headArr.mph_status}','workflow/evaluate/userpopup/pageview/pi/status/{$status}/depart/{$headArr.user_sec_depart}');" type="button">
+									{/if}
+								{else}
+									{if $level>11}
+										<input id="btn_list" title="Send to" class="btn_tools" value="  Send to" onclick="chkScoll('weight','workflow/evaluate/userpopup/pageview/pi/status/{$status}/depart/{$headArr.user_sec_depart}','{$status}');" type="button">
+										<input id="btn_accept" title="Approve" class="btn_tools" onclick="sendDataToSave('F','pi','{$status}','finish');" value="  Approve" type="button">
+									{else}
+										<input id="btn_list" title="Send to" class="btn_tools" value="  Send to" onclick="chkScoll('weight','workflow/evaluate/userpopup/pageview/pi/status/{$status}/depart/{$headArr.user_sec_depart}','{$status}');" type="button">							
+									{/if}									
+								{/if}
+							{else}
+								{if $headArr.mph_status eq 'C'}
+									<input id="btn_list" title="Send to Owner" class="btn_tools" value="  Send to Owner" onclick="chkScollSend('weight','P','pi','{$status}','{$headArr.mph_user}','{$headArr.mph_status}','workflow/evaluate/userpopup/pageview/pi/status/{$status}/depart/{$headArr.user_sec_depart}');" type="button">
+								{else}
+									<input id="btn_list" title="Send to approve" class="btn_tools" value="  Send to approve" onclick="chkScoll('weight','workflow/evaluate/userpopup/pageview/pi/status/{$status}','{$status}');" type="button">
+									<input id="btn_accept" title="Approve" class="btn_tools" onclick="sendDataToSave('F','pi','{$status}','finish');" value="  Approve" type="button">
+								{/if}
+							{/if}
+							{if $status eq 'V'}
+							<input id="btn_back" title="Back" class="btn_tools" onclick="openPage('workflow/evaluate/urecive');"  value="  Back" type="button">
+							{elseif $status eq 'E'}
+							<input id="btn_back" title="Back" class="btn_tools" onclick="openPage('workflow/evaluate/history');"  value="  Back" type="button">
+							{elseif $status eq 'A'}
+							<input id="btn_back" title="Back" class="btn_tools" onclick="openPage('workflow/evaluate/accept/type/PI/my/{$headArr.mph_month}');"  value="  Back" type="button">
+							{else}
+							<input id="btn_back" title="Back" class="btn_tools" onclick="openPage('workflow/evaluate/view/type/PI/user/{$_profile->user_code}/status/{$status}');"  value="  Back" type="button">
+							{/if}
+						</td>
+					</tr>
+					{/if}
+					{/if}
+				{else}
+					<!-- {if $status eq 'W'}
+					<tr bgcolor="#EBEBEB">
+						<td colspan="2" align="right" >
+							<input id="btn_back" title="Back" class="btn_tools" onclick="openPage('workflow/summary/incentive/type/PI/my/{$headArr.mph_month}');"  value="  Back" type="button">
+						</td>
+					</tr>
+					{/if} -->
+				{/if}
+			        <tr align="right">
+				   		<td colspan="2">
+							<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#b9b9b9">
+						   	<tbody>
+						       	<tr align="right">
+						           	<td width="12"><img width="12" src="{$g_image}/buttonmenuleft.gif"/></td>
+						            <td>&nbsp;</td>
+						            <td width="12"><img width="12" src="{$g_image}/buttonmenuright.gif"/></td>
+						        </tr>
+						    </tbody>
+				 	        </table>
+					    </td>
+					</tr>
+			    </table>
+			  </td>
+	        <!-- end detail-->
+	      </tr>
+    	</table>
+    </td>
+  </tr>
+{if $headArr.mph_status eq 'C'}  
+	{if $headArr.mph_user eq $headArr.user_first_recive}
+		<input type="hidden" name="owner_create" id="owner_create" value="Y">
+	{/if}
+{/if}
+<input type="hidden" name="sum_weight" id="sum_weight" value="{$sum_weight|number_format:0}">
+<input type="hidden" name="loopCol" id="loopCol" value="{$column}">
+<input type="hidden" name="receive_old" id="receive_old" value="{$headArr.mph_user_flow}">
+<input type="hidden" name="user_recive" id="user_recive" value="{$headArr.mph_user_flow}">
+<input type="hidden" name="user_send" id="user_send" value="{$user_send}">
+<input type="hidden" name="mode" id="mode">
+<input type="hidden" name="checksend" id="checksend">
+<input type="hidden" name="change" id="change" value="{$change}">
+<input type="hidden" name="page_status" id="page_status" value="{$status}">
+<input type="hidden" name="copy_to" value="{$copy_to}">
+<input type="hidden" name="level_user" value="{$headArr.org_position_level}">
+<input type="hidden" name="head[mph_id]" value="{$headArr.mph_id}">
+<input type="hidden" name="head[mph_month]" value="{$headArr.mph_month}">
+<input type="hidden" name="head[mph_status]" id="status" value="{$headArr.mph_status}">
+<input type="hidden" name="head[mph_user]" value="{$headArr.mph_user}">
+<input type="hidden" name="old_status" id="old_status" value="{$headArr.mph_status}">
+</table>
+{add_script file="$_js/evaluate.js,$_js/action.js,$_js/_pi.js"}
+{include file="$g_template/_footer.tpl"}
+</form>
+</div>
+
+<form id="pitab" action="/{$projectName}/workflow/evaluate/pifrm" method="POST">
+	<input type="hidden" name="user" value="{$user}" />
+	<input type="hidden" name="tab" id="tabyear" value="" />
+	<input type="hidden"  name="m" id="tabmonth" value="" />
+	<input type="hidden" name="status" value="{$status}" />
+	<input type="hidden" name="copy_to" value="{$copy_to}" />
+	<!-- 'PI','{$user}','','01{$yearNow}','{$status}','{$copy_to} @@@/iceworkflow/workflow/evaluate/pifrm/user/1510583/tab//m/032013/status/W/copy_to/3207-->
+</form>
+
+<script>
+{literal}
+	function tabSubmit(_frm, _m, _y){
+		document.getElementById("tabmonth").value = _m;
+		document.getElementById("tabyear").value = _y;
+		document.getElementById(_frm).submit();
+	}
+{/literal}
+</script>

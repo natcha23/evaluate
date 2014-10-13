@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+    <name>rsEvaluation</name>
+    <title>Evaluation System</title>
+    <auth>Y</auth>
+    <email>
+        <server>10.2.1.200</server>
+    </email>
+    <defaults>
+        <dateformat>%d/%m/%Y</dateformat>
+        <timeformat>%H:%M:%S</timeformat>
+        <datetimeformat>%d/%m/%Y %H:%M:%S</datetimeformat>
+        <template>default</template>
+        <theme>default</theme>
+        <language>th</language>
+    </defaults>
+    <!--
+    <service>
+        <auth>Service_Auth</auth>
+        <profile>Service_Profile</profile>
+        <translate>Service_Translate</translate>
+        <logfiles>Service_LogFiles</logfiles>
+        <export2xls>Service_Export2xls</export2xls>
+        <export2csv>Service_Export2csv</export2csv>
+        <filemanager>Service_FileManager</filemanager>
+        <edixml>Service_EdiXml</edixml>
+        <convertdata>Service_ConvertData</convertdata>
+    </service>
+    <template>
+        <header>_header.tpl</header>
+        <footer>_footer.tpl</footer>
+        <headerlogin>_headerlogin.tpl</headerlogin>
+        <footerlogin>_footerlogin.tpl</footerlogin>
+    </template>
+    -->
+</application>

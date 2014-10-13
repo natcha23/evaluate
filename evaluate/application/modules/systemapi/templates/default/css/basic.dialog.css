@@ -1,0 +1,166 @@
+* html div.basic-dialog {
+    position: absolute;
+    top: top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
+}
+
+.basic-dialog {
+    display: none;
+    position: fixed;
+    top: 17%;
+    left: 50%;
+    margin-left: -200px;
+    width: 300px;
+    overflow: hidden;
+    font-family: verdana, tahoma, helvetica;
+    zoom: 1;
+}
+
+.basic-dialog > table {
+    background-color: #999999;
+}
+
+.basic-dialog-draggable,.basic-dialog-draggable .basic-dialog-header-text {
+    cursor: move;
+}
+
+.basic-dialog-tc .basic-dialog-header {
+    padding: 5px 0px 4px 5px;
+    color: #15428B;
+    cursor: move;
+}
+
+.basic-dialog-header-text {
+    font-family: tahoma, arial, verdana, sans-serif;
+    font-size: 12px;
+    font-size-adjust: none;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.basic-dialog-tc {
+    background: transparent url(../images/shared/window/top-bottom.png) repeat-x 0 0;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.basic-dialog-tl {
+    background: transparent url(../images/shared/window/left-corners.png) no-repeat 0 0;
+    padding-left: 6px;
+    zoom: 1;
+    z-index: 1;
+    position: relative;
+}
+
+.basic-dialog-tr {
+    background: transparent url(../images/shared/window/right-corners.png) no-repeat right 0;
+    padding-right: 6px;
+}
+
+.basic-dialog-bc {
+    background: transparent url(../images/shared/window/top-bottom.png) repeat-x 0 bottom;
+    zoom: 1;
+}
+
+.basic-dialog-bc .basic-dialog-footer {
+    padding-bottom: 6px;
+    zoom: 1;
+    font-size: 0;
+    line-height: 0;
+}
+
+.basic-dialog-bl {
+    background: transparent url(../images/shared/window/left-corners.png) no-repeat 0 bottom;
+    padding-left: 6px;
+    zoom: 1;
+}
+
+.basic-dialog-br {
+    background: transparent url(../images/shared/window/right-corners.png) no-repeat right bottom;
+    padding-right: 6px;
+    zoom: 1;
+}
+
+.basic-dialog-mc { /*border:1px solid #99bbe8;*/
+    padding: 0;
+    margin: 0;
+    font: normal 11px tahoma, arial, helvetica, sans-serif;
+    /*background:#dfe8f6;*/
+    background: transparent url("../images/shared/window/top-bottom.png") repeat-x center center;
+}
+
+.basic-dialog-ml {
+    background: transparent url(../images/shared/window/left-right.png) repeat-y 0 0;
+    padding-left: 6px;
+    zoom: 1;
+}
+
+.basic-dialog-mr {
+    background: transparent url(../images/shared/window/left-right.png) repeat-y right 0;
+    padding-right: 6px;
+    zoom: 1;
+}
+
+.basic-dialog-mc { /*background: #C7D6E9;*/
+
+}
+
+.basic-dialog-dlg .basic-dialog-question {
+    background: transparent url(../images/shared/window/icon-question.gif) no-repeat scroll left top;
+}
+
+.basic-dialog-dlg .basic-dialog-info {
+    background:transparent url(../images/shared/window/icon-info.gif) no-repeat scroll left top;
+}
+
+.basic-dialog-dlg .basic-dialog-warning {
+    background:transparent url(../images/shared/window/icon-warning.gif) no-repeat scroll left top;
+}
+
+.basic-dialog-dlg .basic-dialog-error {
+    background:transparent url(../images/shared/window/icon-error.gif) no-repeat scroll left top;
+}
+
+.basic-dialog-dlg .basic-dialog-icon {
+    float: left;
+    height: 32px;
+    width: 47px;
+    margin-left: 10px;
+}
+
+.basic-dialog-dlg .basic-dialog-body {
+    border: 0pt none !important;
+    overflow: hidden !important;
+    padding: 5px 10px;
+}
+
+.basic-dialog-plain .basic-dialog-body {
+    background: transparent none repeat scroll 0% !important;
+    border-color: #DFE8F6 rgb(163, 186, 233) rgb(163, 186, 233) rgb(223, 232, 246);
+    border-style: solid;
+    border-width: 1px;
+}
+
+.x-tool-close {
+    background-position: 0pt;
+}
+
+.x-tool {
+    background: transparent url(../images/shared/panel/tool-sprites.gif) no-repeat scroll 0%;
+    cursor: pointer;
+    float: right;
+    height: 15px;
+    margin-left: 2px;
+    overflow: hidden;
+    width: 15px;
+    margin-top: 5px;
+}
+
+.x-tool-close {
+    background-position: 0 -0;
+}
+
+.x-tool-close-over {
+    background-position: -15px 0;
+}

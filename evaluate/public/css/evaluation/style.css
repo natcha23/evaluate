@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+
+/*login page*/
+.login-body {
+    background-color: #f1f2f7;
+    background-image: url(../../img/evaluation/bg.jpg);
+	background-repeat: repeat-x;
+}

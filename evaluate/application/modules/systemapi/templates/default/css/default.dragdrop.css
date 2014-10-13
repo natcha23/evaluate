@@ -1,0 +1,17 @@
+.draggable { cursor: move;}
+
+.droppable {
+	float: right;
+	width: 200px;
+	height: 200px;
+	background-color: #e9b96e;
+	border: 3px double #c17d11;
+	padding: 5px;
+	text-align: center;
+	overflow: auto;
+	opacity: 0.7;
+}
+.droppable-silver { background-color: #ffeeee; border-color: silver;}
+.droppable-active {	opacity: 1.0;}
+.droppable-hover { outline: 2px dotted black; background-color: #ffeeee; }
+.cal-plan-droppable { height: 80px;}

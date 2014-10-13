@@ -1,0 +1,283 @@
+﻿<style type="text/css">
+<!--
+.bg_logo {
+	background-image: url(images/bg_01.png);
+	background-repeat: repeat-y;
+}
+table, input {
+	font-family: Tahoma, sans-serif;
+	font-size: 11px;
+	color: #333333;
+}
+.txt_comment {
+	font-family: Tahoma, sans-serif;
+	font-size: 10px;
+	color: #666666;
+}
+.txt_comment2 {
+	font-family: Tahoma, sans-serif;
+	font-size: 11px;
+	color: #666666;
+}
+h1 {
+	font-family: Tahoma, sans-serif;
+	font-size: 20px;
+	font-weight: normal;
+	color: #000066;
+}
+h2 {
+	font-family: Tahoma, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: #041D80;
+	line-height: 16px;
+	margin-top: 10px;
+	margin-bottom: 3px;
+}
+a:link h2 {text-decoration: none;}
+a:visited h2 {text-decoration: none;}
+a:hover h2 {color: #041D80; text-decoration: underline;}
+
+.product_head {
+	font-family: Arial, Tahoma, sans-serif;
+	font-size: 15px;
+	color: #041D80;
+	font-weight: normal;
+	text-decoration: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.product_par {
+	margin-left: 5px;
+	margin-right: 5px;
+	text-decoration: none;
+	line-height: 17px;
+}
+.hline_dash {
+	background-image: url(images/h_solid.gif);
+	background-repeat: repeat-y;
+	background-position: left center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.mn_cat {
+	color: #000066;
+	font-weight: bold;
+	text-decoration: none;
+}
+.txt_par {
+	line-height: 17px;
+	/*color: #000066;*/
+}
+
+a:link .mmnu {filter:alpha(opacity=60); -moz-opacity: 0.6; opacity: 0.6;}
+a:visited .mmnu {filter:alpha(opacity=60); -moz-opacity: 0.6; opacity: 0.6;} 
+a:hover .mmnu {filter:alpha(opacity=100); -moz-opacity: 1.0; opacity: 1.0;} 
+/*a:hover .mmnu {filter:none;} */
+
+/* a:link .prdmnu {background-color:#D9D9EC; color: #000066; text-decoration: none;} 
+a:visited .prdmnu {background-color:#D9D9EC; color: #000066; text-decoration: none;} 
+a:hover .prdmnu {background-color:#C0C0C0; color: #000066; text-decoration: none;} */
+
+a:link .prdmnu {font-size: 13px; color: #808080; text-decoration: none;} 
+a:visited .prdmnu {font-size: 13px; color: #808080; text-decoration: none;} 
+a:hover .prdmnu {font-size: 13px; color: #041D80; text-decoration: underline;} 
+
+a:link .prdmnu_s {font-size: 11px; color: #808080; text-decoration: none;} 
+a:visited .prdmnu_s {font-size: 11px; color: #808080; text-decoration: none;} 
+a:hover .prdmnu_s {font-size: 11px; color: #041D80; text-decoration: underline;} 
+
+a:link .mini {font-size: 10px; color: #808080; text-decoration: none;} 
+a:visited .mini {font-size: 10px; color: #808080; text-decoration: none;} 
+a:hover .mini {font-size: 10px; color: #041D80; text-decoration: underline;} 
+
+.tborder { 
+	border: 1px solid #C0C0C0; 
+}
+
+#list {
+  color: #333333;
+  list-style-image: url(images/link-vsmall-gray.gif);
+  margin-right: 0px
+}
+#list li {
+  border-bottom-style: dashed;
+  border-bottom-width: 1px;
+  border-bottom-color: #CCCCCC;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 0px
+}
+#list a:link { color: #333333; text-decoration: none;} 
+#list a:visited  { color: #333333; text-decoration: none;}
+#list a:hover { color: #041D80; text-decoration: underline;} 
+
+.td_box {
+  border: 1px solid #6699FF
+}
+
+<!-- NEW -->
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(images/bg.png);
+	background-repeat: no-repeat;
+    background: #e8e8e8;
+}
+
+#mainTable {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #DADADA;
+    background: #FFFFFF;
+}
+
+#productBoxTitle {
+	font-family: Arial, Tahoma, sans-serif;
+	font-size: 15px;
+	color: #041D80;
+	font-weight: normal;
+	text-decoration: none;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	background-image: url(images/deco/product_box_bg.gif);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #CCCCCC;
+}
+
+#productBox {
+	font-family: Tahoma, sans-serif;
+	font-size: 11px;
+	color: #333333;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    background: #FFFFFF;
+}
+
+#productLineBox {
+    font-family: Arial, Tahoma, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	font-weight: normal;
+	text-decoration: none;
+    border-style: none;
+    border-width: 0px;
+    border-color: #CCCCCC;
+    background: #FFFFFF;
+}
+
+#productLineHeader {
+    font-family: Arial, Tahoma, sans-serif;
+	font-size: 11px;
+	color: #041D80;
+	font-weight: bold;
+	text-decoration: none;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	background-image: url(images/deco/product_box_bg.gif);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #CCCCCC;
+}
+
+#productLineDetail {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #CCCCCC;
+}
+
+#productPMT {
+    border-style: dotted;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    background: #e8e8e8;
+}
+
+#productPMThead {
+    font-family: Arial, Tahoma, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	font-weight: bold;
+	text-decoration: none;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	border-bottom-color: #CCCCCC;
+    background: #e8e8e8;
+}
+#productPMTline {
+    font-family: Arial, Tahoma, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	font-weight: normal;
+	text-decoration: none;
+    background: #FFFFFF;
+
+}
+
+#txt_link a:link {color: #0066CC; text-decoration: underline;}
+#txt_link a:visited {color: #0066CC; text-decoration: underline;}
+#txt_link a:hover {color: #FF6600; text-decoration: none;}
+
+#searchBar {
+    font-family: Arial, Tahoma, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	font-weight: normal;
+	text-decoration: none;
+    background: #FFFFFF;
+}
+
+#memberBar {
+    font-family: Arial, Tahoma, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	font-weight: normal;
+	text-decoration: none;
+    background: #EBEBF5;
+}
+
+#naviBar {
+    border: 1px solid #DDDDDD;
+    background-image: url(images/deco/bar-1.png);
+}
+
+#shopCartBoxBorder {
+    border: 1px solid #DDDDDD;
+    background-image: url(images/deco/bar-1.png);
+    background: #FBFBFB;
+}
+
+#shopCartBoxVal {
+    font-family: Arial, Tahoma, sans-serif;
+	font-size: 10px;
+	color: #333333;
+	font-weight: normal;
+    border: 1px solid #DDDDDD;
+    background: #FFFFC6;
+    text-align: right;
+}
+
+#shopcartViewTitle {
+	font-family: Arial, Tahoma, sans-serif;
+	font-size: 11px;
+	color: 333333;
+	font-weight: bold;
+	text-decoration: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background-image: url(images/deco/product_box_bg.gif);
+    background: #EEEEEE;
+}
+
+#shopcartView {
+    border: 1px solid #DDDDDD;
+    background-image: url(images/deco/bar-1.png);
+    background: #FFFFFF;
+}
+
+-->
+</style>

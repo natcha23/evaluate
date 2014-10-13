@@ -1,0 +1,48 @@
+2014-09-29T10:07:23+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T10:07:23+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T10:14:32+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T10:14:32+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T10:15:06+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T10:15:06+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T10:32:26+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T10:32:26+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T11:01:35+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T11:01:36+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T11:29:29+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}
+2014-09-29T11:29:29+07:00 DEBUG (7): Invalid controller specified (font-awesome)
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#1 C:\AppServ\www\rsEvaluation\public\index.php(199): Zend_Controller_Front->dispatch()
+#2 {main}

@@ -1,0 +1,13 @@
+2014-06-23T11:01:52+08:00 DEBUG (7): Mysqli prepare error: Unknown column 'e.user_code' in 'field list'
+#0 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Statement.php(109): Zend_Db_Statement_Mysqli->_prepare('SELECT `e`.`use...')
+#1 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Adapter\Mysqli.php(330): Zend_Db_Statement->__construct(Object(Zend_Db_Adapter_Mysqli), 'SELECT `e`.`use...')
+#2 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Adapter\Abstract.php(405): Zend_Db_Adapter_Mysqli->prepare('SELECT `e`.`use...')
+#3 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Db\Select.php(580): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select))
+#4 C:\AppServ\www\iceworkflow\modules\systemapi\models\datasource\evaluate.php(472): Zend_Db_Select->query()
+#5 C:\AppServ\www\iceworkflow\modules\workflow\models\EvaluateGeneric.php(2184): Systemapi_evaluate_Table->getUserByEvaId('113')
+#6 C:\AppServ\www\iceworkflow\modules\workflow\controllers\EvaluateController.php(1072): Workflow_Evaluate_Generic->getUserByEvaId('113')
+#7 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Action.php(502): Workflow_EvaluateController->pifrmAction()
+#8 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Dispatcher\Standard.php(293): Zend_Controller_Action->dispatch('pifrmAction')
+#9 C:\AppServ\www\openlib\ZendFramework\1.5.0\library\Zend\Controller\Front.php(914): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 C:\AppServ\www\iceworkflow\index.php(58): Zend_Controller_Front->dispatch()
+#11 {main}
