@@ -27,16 +27,17 @@ class Workflow_EvaluateController extends Workflow_Controller_Flow_Action {
     }
    
     public function indexAction() {
-    	echo 'xxxx';exit;
 		$cat = $this->getGeneric();
 		$view = $this->_getView();
 		$params = $this->getParams();
+		
 		if(!class_exists('Zend_Auth')) Zend_loader :: loadClass('Zend_Auth');
         $auth = Zend_Auth :: getInstance();
         $identity = $auth->getIdentity();
 
         $data[headPage] = "Evaluate Master";
         $data["rows"] = $cat->getEvaluateMST($params,$params["page"],$this->per_page);
+        
         $data["keyword"] = $params["keyword"];
         $data[mId] = $params['menu_id'];
    		/*$data["rows"] = $rows["data"];
@@ -45,8 +46,8 @@ class Workflow_EvaluateController extends Workflow_Controller_Flow_Action {
         $data["page"]  = $params["page"]?$params["page"]:1;
         $data["url"]  = $this->prepareUrl();*/
 
-        $view->assign('', $data);
-    	$view->output('index.tpl');
+        //$view->assign('', $data);
+    	//$view->output('index.tpl');
     }
 
     public function evalmstAction() {
