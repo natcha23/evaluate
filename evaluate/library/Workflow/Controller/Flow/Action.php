@@ -35,8 +35,8 @@ class Workflow_Controller_Flow_Action extends Workflow_Controller_Action {
 										&& $data['params']['action']!="index") {
 			
 			// Go to login page.
-// 			$this->_redirect("/account/account/index/");
-			$this->_redirect("/workflow/evaluate/urecive/");
+			$this->_redirect("/account/account/index/");
+// 			$this->_redirect("/workflow/index/portal");
 			
 		} else {
 

@@ -111,11 +111,11 @@ define("UPLOAD_URL", "http://".$_SERVER["HTTP_HOST"]."/".$project."/uploads");
 define("UPLOAD_PATH", ROOT_DIR."/".$project."/uploads");
 
 // ICE Library
-define("SYSTEM_PATH", ROOT_DIR . "/iLibrary/trunk/");
+define("SYSTEM_PATH", APP_HOME . "/iLibrary/trunk/");
 define('ROOTPATH', ROOT_DIR."/".$project);
 
 // Open Library
-define("LIBRARY_PATH", ROOT_DIR . "/openlib/");
+define("LIBRARY_PATH", APP_HOME . "/openlib/");
 
 // Project library
 define("PROJECT_LIBRARY_PATH", APP_DIR . "/library/");
@@ -134,7 +134,7 @@ define("LINE_CATALOG", 15);
 //   define('DBNAME_USER','dev_ice_workflow');
 define('ROOT_DOC',$_SERVER["DOCUMENT_ROOT"]);
 // define('BIZWARE_HOME',ROOT_DOC."/bizware");
-define('BIZWARE_HOME',ROOT_DIR."/bizware");
+define('BIZWARE_HOME', APP_HOME . "/bizware");
 #define('SETHOST',"10.2.1.200");
 #define("SMS_PROXY","http://intranet.icesolution.com/sms-wf/send-workflow.php");
 //define('SMS_PROXY','http://10.3.2.4/sms-wf/send-workflow.php');
