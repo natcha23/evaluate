@@ -64,7 +64,6 @@ class Authen_IndexController extends Workflow_Controller_Action {
 		}
 	}	
 	public function loginAction() {
-		echo 'authen/controller/login';exit;
 		if (strtolower($_SERVER["REQUEST_METHOD"]) == "post") {
 			// collect the data from the user
 			Zend_Loader :: loadClass("Zend_Filter_StripTags");
@@ -142,7 +141,7 @@ class Authen_IndexController extends Workflow_Controller_Action {
 				//echo "_alert('ยินดีต้อนรับคุณ ".$data->user_name." เข้าสู่ระบบ');";
 				//echo "'var data =1'";
 				
-				echo "window.location.href = '/'+projectName+'/workflow/evaluate/urecive/';";
+				echo "window.location.href = '/workflow/evaluate/urecive/';";
 			} else {
 			    echo "_alert('Username และ password ไม่ถูกต้อง !');";
 			    //echo "return;";

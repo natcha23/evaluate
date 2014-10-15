@@ -86,7 +86,6 @@
     <script type="text/javascript">
 
     $(document).ready(function(){
-
     		//$(".btn-login").on("click", checkLogin, false);
     	$(".btn-login").on("click", function(){
 				console.log('click');
@@ -96,21 +95,23 @@
 
     function checkLogin(){
     	var vChk;
-    	var user = $('name[username]').val();
-    	var pwd = $('name[password]').val();
+    	var user = $( "input[name='username']" ).val();
+    	var pwd = $( "input[name='password']" ).val();
     	var projectName = '<?php echo projectName; ?>';
     	//var chk = document.getElementById('f_remem').checked;
-console.log(user);
+
     	if(user =='' || pwd =='' ){
     		_alert('Pleses input Username and password.');
     	}else{
-    		var baseUrl = '/'+projectName+'/authen/index/login';
+    		var baseUrl = '/authen/index/login';
+
     		//if(chk == true) vChk = 'Y';else vChk = 'N';
     		$.ajax({
     			type: "POST",
     			url: baseUrl,
     			data: {username:user,password:pwd,remember:vChk},
     			success: function(msg){
+        			console.log(msg);
     			  eval(msg);
     			}
     		});

@@ -20,13 +20,13 @@ class Workflow_IndexController extends Workflow_Controller_Flow_Action {
 		$auth = Zend_Auth :: getInstance();
 		$identity = $auth->getIdentity();
 		
-		$data[headPage] = "Evaluate Master";
+		$data['headPage'] = "Evaluate Master";
 // 		$data["rows"] = $cat->getEvaluateMST($params,$params["page"], $this->per_page);
 		
 		$data["keyword"] = $params["keyword"];
 		$data[mId] = $params['menu_id'];
-		
-		$this->render();
+// 		_print($this);exit;
+// 		$this->render();
 	}
 	
 }

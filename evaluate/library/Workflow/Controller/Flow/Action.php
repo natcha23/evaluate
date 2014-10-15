@@ -29,7 +29,7 @@ class Workflow_Controller_Flow_Action extends Workflow_Controller_Action {
 //         echo '<pre>' .debug_print_backtrace() . '</pre>';
 //         echo '<pre>' . print_r($this->_request,1).'</pre>';exit;
         $profile = $this->getProfile();
-      
+    
 		if(empty($profile->user_code) && $data['params']['module']!="account" 
 										&& $data['params']['module']!="controller" 
 										&& $data['params']['action']!="index") {
