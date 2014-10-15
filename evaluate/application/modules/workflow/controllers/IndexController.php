@@ -25,7 +25,7 @@ class Workflow_IndexController extends Workflow_Controller_Flow_Action {
 		
 		$data["keyword"] = $params["keyword"];
 		$data[mId] = $params['menu_id'];
-// 		_print($this);exit;
+		_print($this);exit;
 // 		$this->render();
 	}
 	
