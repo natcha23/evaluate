@@ -4,12 +4,20 @@
           
            <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
+              
+              	  <li>
+                      <a href="#" class="active">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
           
           		<?php echo $this->menuSidebar(); ?>
+          		<?php $renderMenu = $this->menuSidebar(); ?>
 				<?php //echo _print($this);?>
 				
           
-          	<?php //if( empty($this->menuSidebar()) ) :?>
+          	<?php if( empty($renderMenu) ) : ?>
            
                   <li>
                       <a href="index.html" class="active">
@@ -184,8 +192,12 @@
                       </ul>
                   </li>
                   
-                  <?php //endif; ?>
+                  <?php endif; ?>
                   <!--multi level menu end-->
 
               </ul>
               <!-- sidebar menu end-->
+              
+         </div>
+         
+      </aside>

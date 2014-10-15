@@ -39,14 +39,15 @@ class Workflow_Controller_Flow_Action extends Workflow_Controller_Action {
 // 			$this->_redirect("/workflow/index/portal");
 			
 		} else {
-
+			
 			// Login success.
 			if(!empty($profile)) {
-			
+				
+				
 				if( $profile->lookup_code != 'AM' && $profile->level < '7'){
-					if( ($profile->user_code != $data['params']['user']) && $data['params']['status'] =='W'){				
-						$this->_redirect("/workflow/evaluate/urecive/");
-					}
+// 					if( ($profile->user_code != $data['params']['user']) && $data['params']['status'] =='W'){				
+// 						$this->_redirect("/workflow/evaluate/urecive/");
+// 					}
 				}		
 				if($profile->lookup_code !='AM' && ($profile->level < '7' && $data['params']['controller']=="summary")){
 					
@@ -60,7 +61,7 @@ class Workflow_Controller_Flow_Action extends Workflow_Controller_Action {
 // 		$api = new System_Controller;
 // 		$api::getGeneric("systemapi", "systemapi");
 		
-	    $api = System_Controller::getGeneric("systemapi", "systemapi");
+// 	    $api = System_Controller::getGeneric("systemapi", "systemapi");
 // 		$api = getGeneric("systemapi", "systemapi");
 	    
 	    $controller = $this->getRequest()->getControllerName();
@@ -76,16 +77,16 @@ class Workflow_Controller_Flow_Action extends Workflow_Controller_Action {
 	       	$data["_title"] = "::.Responsive Evaluation System .::";
 	       	$data["UPLOAD_URL"] = UPLOAD_URL;
 	       	$data["UPLOAD_PATH"] = UPLOAD_PATH;
-	       	$data["_menuLeft"] = $api->renderLeftMenu($data["params"]);
-	       	$data["_menuTop"] = $api->renderTopMenu($data["params"]);
+// 	       	$data["_menuLeft"] = $api->renderLeftMenu($data["params"]);
+// 	       	$data["_menuTop"] = $api->renderTopMenu($data["params"]);
 
 	       	$data["_monthPIOp"] = array('01'=>'มกราคม','02'=>'กุมภาพันธ์','03'=>'มีนาคม','04'=>'เมษายน','05'=>'พฤษภาคม','06'=>'มิถุนายน',
 						   			    '07'=>'กรกฎาคม','08'=>'สิงหาคม','09'=>'กันยายน','10'=>'ตุลาคม','11'=>'พฤศจิกายน','12'=>'ธันวาคม');
 
 	       	//$data["_monthMIOp"] = array('01'=>'มกราคม','04'=>'เมษายน','07'=>'กรกฎาคม','10'=>'ตุลาคม');
 	       	$data["_monthMIOp"] = array('Q1'=>'Quarter 1','Q2'=>'Quarter 2','Q3'=>'Quarter 3','Q4'=>'Quarter 4');
-	        $data["_gradeOption"] = $api->getGradeData(&$scollArr);
-	        $data["_scollOption"] = $scollArr;
+// 	        $data["_gradeOption"] = $api->getGradeData(&$scollArr);
+// 	        $data["_scollOption"] = $scollArr;
 	        
 	        // Summary Evaluation Status #natcha 16 Jun 2014.
 	        if(!empty($data['params']['search'])) {

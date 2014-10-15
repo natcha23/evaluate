@@ -10,17 +10,30 @@ class Workflow_Controller_Action extends System_Controller_Action {
                 $view = Zend_Registry::get("view");
                 
             } else {
-                $view = new Smarty_View();
+//                $view = new Smarty_View();
             }
             
-            $view->_smarty->unregister_function('html_treemenu');
-            $view->_smarty->unregister_function('html_pagination');
-            $view->_smarty->register_function('html_pagination', array($this,'html_pagination'));
-            $view->_smarty->register_function("html_treemenu", array($this,"html_treemenu"));
-            $view->_smarty->register_function("html_topmenu", array($this,"html_topmenu"));
+//             $view->_smarty->unregister_function('html_treemenu');
+//             $view->_smarty->unregister_function('html_pagination');
+//             $view->_smarty->register_function('html_pagination', array($this,'html_pagination'));
+//             $view->_smarty->register_function("html_treemenu", array($this,"html_treemenu"));
+//             $view->_smarty->register_function("html_topmenu", array($this,"html_topmenu"));
             Zend_Registry :: set("view", $view);
 
         }
+	}
+	
+	protected function _getView() {
+		$view = null;
+		if ($this->_output == "html") {
+			if(Zend_Registry::isRegistered("view")) {
+				$view = new Zend_View();
+			} else {
+				$this->init();
+				$view = Zend_Registry::get("view");
+			}
+		}
+		return $view;
 	}
 	
 	public function html_treemenu($params, &$smarty) {

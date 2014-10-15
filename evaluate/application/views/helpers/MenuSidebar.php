@@ -17,10 +17,9 @@ class App_View_Helper_MenuSidebar extends Zend_View_Helper_Action
                   <li class="sub-menu">
                       <a href="javascript:;">
                           <i class="fa fa-laptop"></i>
-                          <span>Evaluation</span>
+                          <span>Demo</span>
                       </a>
                       <ul class="sub">
-                      
                           <li><a  href="boxed_page.html">Boxed Page</a></li>
                           <li><a  href="horizontal_menu.html">Horizontal Menu</a></li>
                           <li><a  href="language_switch_bar.html">Language Switch Bar</a></li>

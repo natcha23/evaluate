@@ -1315,12 +1315,14 @@ class Workflow_EvaluateController extends Workflow_Controller_Flow_Action {
 		if(!class_exists('Zend_Auth')) Zend_loader :: loadClass('Zend_Auth');
         $auth = Zend_Auth :: getInstance();
         $identity = $auth->getIdentity();
-		$rowsArr = $cat->getEvaluateTotalByUser($identity->user_code);
+        
+        
+// 		$rowsArr = $cat->getEvaluateTotalByUser($identity->user_code);
 
-		$data["level"] = $identity->level;
-		$data["worklist"] = $rowsArr["worklist"];
-		$rowsAc = $cat->getEvaluateActByUser($identity->user_code);
-		$data["rowsArr"] = $rowsAc;
+// 		$data["level"] = $identity->level;
+// 		$data["worklist"] = $rowsArr["worklist"];
+// 		$rowsAc = $cat->getEvaluateActByUser($identity->user_code);
+// 		$data["rowsArr"] = $rowsAc;
 		
 		//$data["activity"] = $rowsArr["activity"];
 // 		$view->assign('', $data);

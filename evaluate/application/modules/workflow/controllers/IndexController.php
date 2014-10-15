@@ -13,20 +13,27 @@ class Workflow_IndexController extends Workflow_Controller_Flow_Action {
 // 		echo 'workflow/index/index';exit;
 // 		$cat	= $this->getGeneric();
 		$view 	= $this->_getView();
-// 		$view	= new Zend_View();
+		
+		/* @var $layout Zend_Layout */
+// 		$layout = $this->_helper->layout->getLayoutInstance();
+// 		$layout->assign('content', $this->view->render('index/portal.phtml'));
+		
+		$layout = new Zend_Layout;
+		$layout->setLayoutPath('/views/scripts/');
+		$layout->assign('content', $this->view->render('index/portal.phtml'));
+		
 		$params = $this->getParams();
-// 		_print($view);exit;
 		if(!class_exists('Zend_Auth')) Zend_loader :: loadClass('Zend_Auth');
 		$auth = Zend_Auth :: getInstance();
 		$identity = $auth->getIdentity();
 		
-		$data['headPage'] = "Evaluate Master";
-// 		$data["rows"] = $cat->getEvaluateMST($params,$params["page"], $this->per_page);
+// 		$data['headPage'] = "Evaluate Master";
+// // 		$data["rows"] = $cat->getEvaluateMST($params,$params["page"], $this->per_page);
 		
-		$data["keyword"] = $params["keyword"];
-		$data[mId] = $params['menu_id'];
-		_print($this);exit;
-// 		$this->render();
+// 		$data["keyword"] = $params["keyword"];
+// 		$data[mId] = $params['menu_id'];
+// 		_print($this);exit;
+		$this->render();
 	}
 	
 }
