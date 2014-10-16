@@ -18,15 +18,19 @@ class Workflow_IndexController extends Workflow_Controller_Flow_Action {
 // 		$layout = $this->_helper->layout->getLayoutInstance();
 // 		$layout->assign('content', $this->view->render('index/portal.phtml'));
 		
-		$layout = new Zend_Layout;
-		$layout->setLayoutPath('/views/scripts/');
-		$layout->assign('content', $this->view->render('index/portal.phtml'));
+// 		$layout = new Zend_Layout;
+// 		$layout->setLayoutPath('/views/scripts/');
+// 		$layout->assign('content', $this->view->render('index/portal.phtml'));
+		
+		$layout = $this->_helper->layout;		
+// 		$layout->setLayoutPath('/views/scripts/');
+// 		$layout->assign('content', $this->view->render('index/portal.phtml'));
+// 		_print($layout);
 		
 		$params = $this->getParams();
 		if(!class_exists('Zend_Auth')) Zend_loader :: loadClass('Zend_Auth');
 		$auth = Zend_Auth :: getInstance();
 		$identity = $auth->getIdentity();
-		
 // 		$data['headPage'] = "Evaluate Master";
 // // 		$data["rows"] = $cat->getEvaluateMST($params,$params["page"], $this->per_page);
 		

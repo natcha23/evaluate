@@ -141,9 +141,13 @@ class Authen_IndexController extends Workflow_Controller_Action {
 				//echo "_alert('ยินดีต้อนรับคุณ ".$data->user_name." เข้าสู่ระบบ');";
 				//echo "'var data =1'";
 				
-				echo "window.location.href = '/workflow/evaluate/urecive/';";
+// 				echo "window.location.href = '/workflow/evaluate/urecive/';";
+// 				$this->_redirect("/workflow/index/portal");
+// 				echo "window.location.href = '/workflow/index/portal';";
+				echo 'success';
 			} else {
-			    echo "_alert('Username และ password ไม่ถูกต้อง !');";
+				echo 'unsuccess';
+// 			    echo "_alert('Username และ password ไม่ถูกต้อง !');";
 			    //echo "return;";
 			}
 		}

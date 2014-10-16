@@ -111,15 +111,15 @@ class Workflow_Controller_Flow_Action extends Workflow_Controller_Action {
 	        Zend_Registry :: set("view",$view);
         }
 
-        if ($this->_output == "html") {
-            if(Zend_Registry::isRegistered("view")) {
-                $view = Zend_Registry::get("view");
-            } else {
-                $view = new Smarty_View();
-            }
-            //$view->_smarty->register_function("html_topmenu", array($this,"html_topmenu"));
-            Zend_Registry :: set("view", $view);
-        }
+//         if ($this->_output == "html") {
+//             if(Zend_Registry::isRegistered("view")) {
+//                 $view = Zend_Registry::get("view");
+//             } else {
+//                 $view = new Smarty_View();
+//             }
+//             //$view->_smarty->register_function("html_topmenu", array($this,"html_topmenu"));
+//             Zend_Registry :: set("view", $view);
+//         }
 
     }
     

@@ -15,20 +15,21 @@ class Master_FormController extends Workflow_Controller_Flow_Action {
         $auth = Zend_Auth :: getInstance();
         $identity = $auth->getIdentity();
 
+        $this->render();
         
-        $data["headPage"] = "Form Evaluate List";
-        $rows = $cat->getFormEvaluate($params,$params["page"],$this->per_page);
-        $copyArr = $cat->getDraftFormEvaluate($params);
+//         $data["headPage"] = "Form Evaluate List";
+//         $rows = $cat->getFormEvaluate($params,$params["page"],$this->per_page);
+//         $copyArr = $cat->getDraftFormEvaluate($params);
 
-		$data["keyword"] = $params["keyword"];
-   		$data["rows"] = $rows["data"];
-   		$data["copyArr"] = $copyArr;
-   		$data["totalRecord"] = $rows["total"];
-        $data["perpage"]     = $this->per_page;
-        $data["page"]  = $params["page"]?$params["page"]:1;
-        $data["url"]  = $this->prepareUrl();
-        $view->assign('', $data);
-    	$view->output('form/_list.tpl');
+// 		$data["keyword"] = $params["keyword"];
+//    		$data["rows"] = $rows["data"];
+//    		$data["copyArr"] = $copyArr;
+//    		$data["totalRecord"] = $rows["total"];
+//         $data["perpage"]     = $this->per_page;
+//         $data["page"]  = $params["page"]?$params["page"]:1;
+//         $data["url"]  = $this->prepareUrl();
+//         $view->assign('', $data);
+//     	$view->output('form/_list.tpl');
     }
     public function evafrmAction() {
 		$cat = $this->getGeneric();

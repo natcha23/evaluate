@@ -10,7 +10,7 @@ class Workflow_Controller_Action extends System_Controller_Action {
                 $view = Zend_Registry::get("view");
                 
             } else {
-//                $view = new Smarty_View();
+               $view = new Smarty_View();
             }
             
 //             $view->_smarty->unregister_function('html_treemenu');

@@ -35,20 +35,24 @@
   	<section id="container" class="">
   
 		<!--header start-->
-      	<?php echo $this->partial('layout/header.phtml');?>
-      	<!--header end-->
+      	<?php echo $this->partial('layout/header.phtml'); ?>
+      	<!--header end--> 
       
       	<!--sidebar start--><!--left menu-->
-      	<?php echo $this->partial('layout/sidebar.phtml');?>
+      	<?php echo $this->partial('layout/sidebar.phtml'); ?>
       	<!--sidebar end-->
       
       	<!--main content start-->
       	<section id="main-content">
+      		<section class="wrapper site-min-height">
+				<!-- page start-->
           
-          	<!-- Content -->
-          	<?php //echo '<pre>' . print_r($this, 1) . '</pre>';exit;?>
-          	<?php echo $this->layout()->content;?>
+	          	<!-- Content -->
+	          	<?php echo '<pre>' . print_r($this->layout(), 1) . '</pre>'; ?>
+	          	<?php echo $this->layout()->content;?>
           	
+          		<!-- page end-->
+          </section>
       	</section>
       	<!--main content end-->
       

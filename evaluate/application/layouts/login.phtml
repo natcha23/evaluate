@@ -111,8 +111,15 @@
     			url: baseUrl,
     			data: {username:user,password:pwd,remember:vChk},
     			success: function(msg){
-        			console.log(msg);
-    			  eval(msg);
+
+//     				eval(msg);
+					if(msg == "success") {
+    					window.location.href = '/workflow/index/portal';
+					}
+					else {
+						alert('Username or Password not valid.');
+						return false;
+					}
     			}
     		});
     	}

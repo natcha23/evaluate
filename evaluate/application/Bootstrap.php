@@ -135,7 +135,7 @@ function bootstrap()
 	// setup view helpers
 	$view = new Zend_View();
 	$view->addHelperPath('../application/views/helpers', 'App_View_Helper');
-	$view->addScriptPath('../application/modules/workflow/views/scripts');
+// 	$view->addScriptPath('../application/modules/workflow/views/scripts');
 	$viewRenderer = new Zend_Controller_Action_Helper_ViewRenderer();
 // 	_print($view);exit;
 	$viewRenderer->setView($view);

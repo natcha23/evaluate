@@ -19,15 +19,25 @@ class Account_AccountController extends Workflow_Controller_Flow_Action {
     	
     	$auth = Zend_Auth::getInstance();
     	$identity = $auth->getIdentity();
-
+    	
     	$layout = $this->_helper->layout;
+    	
+		if(empty($identity)) {    	
+    	
+	    	// disable layouts for this action:
+	    	$layout->disableLayout();
+	    	$layout->setLayout('login');
+    	
+		}
+    	 
+    	$this->render();
     	
 //     	$this->_redirect("/default/index/index");
     	// disable layouts for this action:    	
 //     	$layout->disableLayout();
 //     	$layout->setLayout('login');
     	
-    	$this->render();
+//     	$this->render();
     }
     
     public function loginAction() {

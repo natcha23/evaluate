@@ -157,8 +157,8 @@ $public_urls = array( "/workflow/evaluate/urecive"
 		,"/account/account/index"
 );
 
-error_reporting(E_ALL|E_STRICT);
-// error_reporting(E_ALL &~E_NOTICE); // Using in old version. 
+// error_reporting(E_ALL|E_STRICT);
+error_reporting(E_ALL &~E_NOTICE); // Using in old version. 
 
 ini_set('display error', 1);
 date_default_timezone_set('Asia/Bangkok');
